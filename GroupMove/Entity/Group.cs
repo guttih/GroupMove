@@ -10,7 +10,7 @@ namespace GroupMove.Entity
 	internal class Group
 	{
 		
-		private List<string> AssignmentList = new List<string>();
+		public List<string> AssignmentList = new List<string>();
 
 		public int  Slots { get; set; }
 		public string	Name { get; }
@@ -22,6 +22,7 @@ namespace GroupMove.Entity
 		public int	AllAssignmentCount { get; }
 		
 		public int AssignmentCount => AssignmentList.Count;
+
 
 		public Group(string name, int memberCount, int courceMemberCount, int allAssignmentCount)
 		{

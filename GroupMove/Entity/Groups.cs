@@ -69,7 +69,7 @@ namespace GroupMove.Entity
 
 
 		
-		public String SplitAssignments(System.Windows.Forms.TextBox tbReport)
+		public string[][] SplitAssignments(System.Windows.Forms.TextBox tbReport)
 		{
 
 			var assignmentsLeft = new List<string>(GetUnique(2));
@@ -133,13 +133,13 @@ namespace GroupMove.Entity
 				stringToReturn +="    " + item +"\r\n";
 			}
 
-			stringToReturn += "Note this splitup is only shown in the text above, and will not affect what happens when you press start.  We can do that funcionality later.";
-			tbReport.AppendText(stringToReturn);
+			if (tbReport != null)
+				tbReport.AppendText(stringToReturn);
 
-			return "";  //todo: convert groups to an array and returnit so you can extract your groups next
+			return ToArray();
 		}
 
-		private int findNextNoneZero(int [] array, int indexStartSearch)
+		private int FindNextNoneZero(int [] array, int indexStartSearch)
 		{
 
 			if (!(indexStartSearch < array.Length))
@@ -157,13 +157,13 @@ namespace GroupMove.Entity
 		private bool AddAssignmentToNextGroupIfFoundInGroup(String assignmentID, int [] searchCount)
 		{
 			double maxRatio = 0;
-			int index = findNextNoneZero(searchCount, 0);
+			int index = FindNextNoneZero(searchCount, 0);
 			while (  (index < _groupList.Count )  &&  (index > -1 )  )
 			{
 				if (_groupList[index].AddAssignment(assignmentID) == true)
 					return true;
 
-				index = findNextNoneZero(searchCount, index + 1);
+				index = FindNextNoneZero(searchCount, index + 1);
 			}
 
 			return false;
@@ -300,6 +300,25 @@ namespace GroupMove.Entity
 
 			listRet.Sort((s, t) => String.Compare(s[0], t[0]));
 			return listRet.ToArray();
+		}
+
+		public string[][] ToArray()
+		{
+			var lines = new List<string[]>();
+			
+			foreach (var group in _groupList)
+			{
+				foreach (var assignment in group.AssignmentList)
+				{
+					string[] line = new string[_assignment[0].Length];
+					line[2] = assignment;
+					line[3] = group.Name;
+					lines.Add(line);
+				}
+			}
+
+			return lines.ToArray();
+
 		}
 
 	}

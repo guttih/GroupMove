@@ -36,7 +36,7 @@ namespace GroupMove.Entity
 			return _groups.GetUnique(column);
 		}
 
-		public string SplitAssignments(System.Windows.Forms.TextBox tb)
+		public string[][] SplitAssignments(System.Windows.Forms.TextBox tb)
 		{
 			return _groups.SplitAssignments(tb);
 		}

@@ -22,6 +22,7 @@ namespace GroupMove
     public partial class Form1 : Form
     {
         string[][] arrSkil = null;
+	    private bool arrayHasBeenSplitup = false;
         private FolderBrowserDialog browserDlg;
         private OpenFileDialog browserFileDlg;
         ToolTip toolTip1;
@@ -569,8 +570,8 @@ namespace GroupMove
             openDestinationToolStripMenuItem.Enabled = toExists;
 
             comboHopar.Enabled = btnStart.Enabled;
-	        devideHandinsOntoGroupsToolStripMenuItem.Enabled = btnStart.Enabled;
 
+			ShowSplitupWarning();
 
         }
 
@@ -627,10 +628,12 @@ namespace GroupMove
             else if (ftype == 5)
               arrSkil =  getAssignmentFromExcel(tbFile.Text);
 
-           
-            if (arrSkil == null)
+			arrayHasBeenSplitup = false;
+
+			if (arrSkil == null)
             {
                 WriteLine("Error opening assignment file");
+	            
                 return;
             }
 
@@ -904,13 +907,37 @@ namespace GroupMove
 			statusBar1.Text = "Show a suggestion on how to split handin assignments into groups";
 		}
 
+	    private void ShowSplitupWarning()
+	    {
+		    int tbResultHeight = 173;
+		    bool bShow = arrayHasBeenSplitup && btnStart.Enabled;
+
+			devideHandinsOntoGroupsToolStripMenuItem.Enabled = !bShow;
+		    if (bShow)
+			    tbResultHeight = 124;
+
+		    tbResult.Height = tbResultHeight;
+	    }
 		private void devideHandinsOntoGroupsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			tbResult.Clear();
 			WriteLine("Divide the handings onto groups!");
 			var ass = new MySchoolAssignment(arrSkil);
-			ass.SplitAssignments(tbResult);
+			var splitArr = ass.SplitAssignments(tbResult);
+			arrSkil = splitArr;
+			arrayHasBeenSplitup = true;
+			ShowSplitupWarning();
+			
 		}
 
+		private void reloadFileToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+		{
+			statusBar1.Text = "Reload the selected file";
+		}
+
+		private void reloadFileToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			tmrKeyPressFileKey.Enabled = true;
+		}
 	}
 }
