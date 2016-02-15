@@ -528,7 +528,8 @@ namespace GroupMove
                     }*/
                     //WriteLine(entry.FullName);
                 }
-            }
+				WriteLine("Extracting done!");
+			}
 
             return ret;
         }
