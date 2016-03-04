@@ -833,21 +833,33 @@ namespace GroupMove
             // Process the list of files found in the directory.
             string[] fileEntries = Directory.GetDirectories(tbTo.Text);
             int n;
-            
+            tbResult.Clear();
             foreach (string fileName in fileEntries)
             {
                 n = fileName.LastIndexOf('\\') + 1;
                 string name = fileName.Substring(n, fileName.Length - n);
-                ;
-                if (int.TryParse(name, out n) == true) //check if it's a number
+				string gradedZipfile = tbTo.Text + "\\" + name + "_grades.zip";
+
+				//delete old grade file if it exists
+				if (File.Exists(gradedZipfile)) File.Decrypt(gradedZipfile);
+				if (int.TryParse(name, out n) == true) //check if it's a number
                 { 
                     WriteLine(fileName);
                     zipGrades(name, tbTo.Text, tbTo.Text);
-                }
+					WriteLine("Created the file : \"" + gradedZipfile + "\"");
+				}
                 else
                 {
                     WriteLine("Ignoring " + name);
                 }
+
+	            if (File.Exists(gradedZipfile))
+	            {
+					DialogResult dialogResult;
+						dialogResult = MessageBox.Show("A zip file with all grades has been created.\n\nDo you want to open the folder it is located in?", "Grades file created", MessageBoxButtons.YesNo);
+						if (dialogResult == DialogResult.Yes)
+							Process.Start(tbTo.Text);
+				}
             }
                
 
@@ -871,7 +883,7 @@ namespace GroupMove
                         n = dir.LastIndexOf('\\') + 1;
                         string dirName = dir.Substring(n, dir.Length - n);
                         string[] returnFiles = Directory.GetFiles(dir, "*einkunn.txt");
-                        WriteLine(dir + "{");
+                        
                         foreach (var file in returnFiles)
                         {
                             //adda file í archive
@@ -879,9 +891,9 @@ namespace GroupMove
                             string fileName = file.Substring(n, file.Length - n);
                             string achivePath = assignment + '/' + dirName + '/' + fileName;
                             archive.CreateEntryFromFile(file, achivePath);
-                            Write(file + " ");
+                            WriteLine(file + " ");
                         }
-                        WriteLine("}");
+                       
                     }
                 }
             }
