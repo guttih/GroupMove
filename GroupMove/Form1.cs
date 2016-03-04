@@ -209,6 +209,7 @@ namespace GroupMove
                 lines.Add(line);
 
             }
+	        MyBook.Close();
 
             ///https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k(Microsoft.Office.Interop.Excel._Worksheet.Cells);k(TargetFrameworkMoniker-.NETFramework,Version%3Dv4.5.2);k(DevLang-csharp)&rd=true
 
