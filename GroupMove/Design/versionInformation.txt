@@ -1,3 +1,35 @@
 Date	    Time  Version  
 04.03.2016 18:00  1.4.2.0  
 	After reading a xls file the appliction will close the excel workbook and therefore fixing bug that left a instance of excel running.
+
+Next version , UpdateProgarm.
+	Description
+		Check if a update exits and download the new version and run the new setup.
+	
+	Check for update:
+		How to download a version version file from http://www.guttih.com/groupmove/version.config
+		get information from the file
+			the file needs to have 
+				a relative link to the new version
+				a text descriping what is new in the new version
+			see how it should look like int the file C:\Program Files (x86)\guttih\GroupMove\GroupMove.exe.config
+			get information from aversion.config file
+				http://stackoverflow.com/questions/505566/loading-custom-configuration-files
+		
+		how to download and run the new setup and exit the current program
+			how to download will probably be just like downloading the version.config file
+			How to run the newly downloaded setup
+				How to run a process and exit the current one
+			do we need to delete the setup after upgrade has succeeded?
+				ask to delete
+				how to run the program after upgrade, and make it figure out that it just downloaded a new version
+					mabaybe we download to the application folder and if the file setup.msi exits, then delete it.
+				 
+
+		
+
+	
+	
+	remove configuration on uninstall:
+		Remember to add the version file to the project so it will be deleted when uninstall is run
+	
