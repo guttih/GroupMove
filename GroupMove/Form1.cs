@@ -52,12 +52,7 @@ namespace GroupMove
 				browserFileDlg.InitialDirectory = Path.GetDirectoryName(tbFile.Text);
 
 
-			//set the newest version number here and this file configuration file will be uploaded to the groupmove server
-			Properties.Settings.Default.version            = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-	        Properties.Settings.Default.versionDescription =
-			"This version will be able to check if there is a new version of this application, " +
-			"download it and run the setup for the new version.  This version is created to test the " +
-			"former version, there is not funcionality added, just a new build.";
+			Properties.Settings.Default.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
 			//Delete files, if GroupMove previously downloaded a setup- and/or config file
 	        string fileName = Path.GetTempPath() + Properties.Settings.Default.downloadSetupFileName;
@@ -604,7 +599,9 @@ namespace GroupMove
             Properties.Settings.Default.lastFile    = tbFile.Text;
             Properties.Settings.Default.lastFromDir = tbFrom.Text;
             Properties.Settings.Default.LastToDir = tbTo.Text;
-            Properties.Settings.Default.Save();
+	        string str = Properties.Settings.Default.versionDescription;
+
+			Properties.Settings.Default.Save();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

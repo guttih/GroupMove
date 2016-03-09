@@ -12,14 +12,34 @@ Date	    Time  Version
 How to deploy!
 Change the AssemblyInfo.cs::AssemblyVersion and the AssemblyInfo.cs::AssemblyFileVersion
 Change the int the function Form1.cs::Form1()::Properties.Settings.Default.versionDescription
+
+Double click on Settings.settings and set
+	Version                to the same as AssemblyFileVersion
+	versionDescription     New description of the version
+
+
 Save all files
 Check the changes in to github
 Select Release
 Rebuild all
 Select setup
 Rebuild all
+Copy the file 
+	from
+		C:\Users\GuðjónHólm\Documents\Visual Studio 2015\Projects\GroupMove\Setup\Release\Setup.msi
+	to the new version folder on 
+		\\KEILIR7\htdocs\GroupMove\ver1_x_x_x
+Add the new information version information to the file 
+	\\KEILIR7\htdocs\GroupMove\index.html
+
+
 Copy the file
-C:\Users\GuðjónHólm\Documents\Visual Studio 2015\Projects\GroupMove\Setup\Release\Setup.msi
-to the new version folder on \\KEILIR7\htdocs\GroupMove\ver1_x_x_x
-Add the new information version information to the file \\KEILIR7\htdocs\GroupMove\index.html
-	
+	from:
+		C:\Users\GuðjónHólm\documents\visual studio 2015\Projects\GroupMove\GroupMove\App.config
+	to:
+		\\KEILIR7\htdocs\GroupMove\download.config
+
+todo: create a post build task
+Change the file \\KEILIR7\htdocs\GroupMove\download.config
+        version            : 1.4.2.2
+		versionDescription : This version will be able to check if there is a new version of this application, download it and run the setup for the new version.  This version is created to test the former version, there is not funcionality added, just a new build

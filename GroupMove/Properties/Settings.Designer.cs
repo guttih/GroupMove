@@ -61,7 +61,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.0.0.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.4.2.2")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -73,7 +73,8 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("This is the version description")]
+        [global::System.Configuration.DefaultSettingValueAttribute("This version is created to test the former version, there is not funcionality add" +
+            "ed, just a new build.")]
         public string versionDescription {
             get {
                 return ((string)(this["versionDescription"]));

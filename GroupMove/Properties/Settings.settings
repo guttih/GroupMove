@@ -12,10 +12,10 @@
       <Value Profile="(Default)">c:\temp</Value>
     </Setting>
     <Setting Name="version" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1.0.0.0</Value>
+      <Value Profile="(Default)">1.4.2.2</Value>
     </Setting>
     <Setting Name="versionDescription" Type="System.String" Scope="User">
-      <Value Profile="(Default)">This is the version description</Value>
+      <Value Profile="(Default)">This version is created to test the former version, there is not funcionality added, just a new build.</Value>
     </Setting>
     <Setting Name="downloadConfigFileName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">downloadGroupMove.config</Value>
