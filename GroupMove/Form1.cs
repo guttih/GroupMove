@@ -55,7 +55,9 @@ namespace GroupMove
 			//set the newest version number here and this file configuration file will be uploaded to the groupmove server
 			Properties.Settings.Default.version            = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 	        Properties.Settings.Default.versionDescription =
-			"This version will be able to check if there is a new version of this application, download it and run the setup for the new version.";
+			"This version will be able to check if there is a new version of this application, " +
+			"download it and run the setup for the new version.  This version is created to test the " +
+			"former version, there is not funcionality added, just a new build.";
 
 			//Delete files, if GroupMove previously downloaded a setup- and/or config file
 	        string fileName = Path.GetTempPath() + Properties.Settings.Default.downloadSetupFileName;

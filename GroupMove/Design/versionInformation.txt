@@ -2,5 +2,24 @@ Date	    Time  Version
 04.03.2016 18:00  1.4.2.0  
 	After reading a xls file the appliction will close the excel workbook and therefore fixing bug that left a instance of excel running.
 
-09.03.2016 02:14 1.4.2.0
+09.03.2016 02:14 1.4.2.1
 	This version will be able to check if there is a new version of this application, download it and run the setup for the new version.
+
+09.03.2016 02:54 1.4.2.2
+	This version will be able to check if there is a new version of this application, download it and run the setup for the new version.
+	This version is created to test the former version, there is not funcionality added, just a new build.
+
+How to deploy!
+Change the AssemblyInfo.cs::AssemblyVersion and the AssemblyInfo.cs::AssemblyFileVersion
+Change the int the function Form1.cs::Form1()::Properties.Settings.Default.versionDescription
+Save all files
+Check the changes in to github
+Select Release
+Rebuild all
+Select setup
+Rebuild all
+Copy the file
+C:\Users\GuðjónHólm\Documents\Visual Studio 2015\Projects\GroupMove\Setup\Release\Setup.msi
+to the new version folder on \\KEILIR7\htdocs\GroupMove\ver1_x_x_x
+Add the new information version information to the file \\KEILIR7\htdocs\GroupMove\index.html
+	
