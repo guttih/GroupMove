@@ -58,5 +58,47 @@ namespace GroupMove.Properties {
                 this["LastToDir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.0.0.0")]
+        public string version {
+            get {
+                return ((string)(this["version"]));
+            }
+            set {
+                this["version"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("This is the version description")]
+        public string versionDescription {
+            get {
+                return ((string)(this["versionDescription"]));
+            }
+            set {
+                this["versionDescription"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("downloadGroupMove.config")]
+        public string downloadConfigFileName {
+            get {
+                return ((string)(this["downloadConfigFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SetupGroupMove.msi")]
+        public string downloadSetupFileName {
+            get {
+                return ((string)(this["downloadSetupFileName"]));
+            }
+        }
     }
 }

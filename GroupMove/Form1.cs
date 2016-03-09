@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO.Compression;
+using System.Reflection;
 using GroupMove.Entity;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -49,9 +51,18 @@ namespace GroupMove
 			if (tbFile.Text.Length > 0)
 				browserFileDlg.InitialDirectory = Path.GetDirectoryName(tbFile.Text);
 
-            
-           
-        }
+
+			//set the newest version number here and this file configuration file will be uploaded to the groupmove server
+			Properties.Settings.Default.version            = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+	        Properties.Settings.Default.versionDescription =
+			"This version will be able to check if there is a new version of this application, download it and run the setup for the new version.";
+
+			//Delete files, if GroupMove previously downloaded a setup- and/or config file
+	        string fileName = Path.GetTempPath() + Properties.Settings.Default.downloadSetupFileName;
+	        if (File.Exists(fileName)) File.Delete(fileName);
+			fileName = Path.GetTempPath() + Properties.Settings.Default.downloadConfigFileName;
+			if (File.Exists(fileName)) File.Delete(fileName);
+		}
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -248,7 +259,7 @@ namespace GroupMove
             int counter = 0;
             string line;
 
-            // Read the file and display it line by line.
+            // ReadAssignmentFile the file and display it line by line.
             System.IO.StreamReader file;
             try
             {
@@ -614,7 +625,7 @@ namespace GroupMove
             contr.Enabled = enable;
         }
 
-        private void Read()
+        private void ReadAssignmentFile()
         {
 
             EnableAllControls(this, false);
@@ -625,9 +636,10 @@ namespace GroupMove
 
 
 
-            if (ftype == 3)
+            if (ftype == 3) { 
                arrSkil = getAssignment(tbFile.Text);
-            else if (ftype == 5)
+			}
+			else if (ftype == 5)
               arrSkil =  getAssignmentFromExcel(tbFile.Text);
 
 			arrayHasBeenSplitup = false;
@@ -639,9 +651,10 @@ namespace GroupMove
                 return;
             }
 
+			WriteLine("Lines read : " + arrSkil.Length);
 			//extract unique
-			
-			
+
+
 			string[] hopar = getUnique(arrSkil, 3);
             if (hopar == null)
             {
@@ -649,7 +662,9 @@ namespace GroupMove
                 return;
             }
 
-            comboHopar.Items.Clear();
+			WriteLine("Number of groups : " + hopar.Length);
+
+			comboHopar.Items.Clear();
             foreach (var VARIABLE in hopar)
             {
                 comboHopar.Items.Add(VARIABLE);
@@ -657,7 +672,7 @@ namespace GroupMove
             if (comboHopar.Items.Count > 0)
                 comboHopar.SelectedIndex = 0;
             SetButtonStatus();
-            tbResult.Clear();
+           
             WriteLine("Done reading group file!");
            
             EnableAllControls(this, true);
@@ -794,7 +809,7 @@ namespace GroupMove
 
             int ftype = pathToWhat(tbFile.Text);
             if (ftype == 3 || ftype == 5)
-                Read();
+                ReadAssignmentFile();
                 
             SetButtonStatus();
         }
@@ -952,6 +967,82 @@ namespace GroupMove
 		private void reloadFileToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			tmrKeyPressFileKey.Enabled = true;
+		}
+
+		private void checkForUpdateToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+		{
+			statusBar1.Text = "Check if there is a new version of GroupMove online";
+		}
+
+		private void checkForUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			string oldVersion = Properties.Settings.Default.version;
+			GWeb web = new GWeb();
+			string destPath = Path.GetTempPath();
+			string onLineFolder = "http://www.guttih.com/groupmove";
+			string fileNameDownloaded = destPath +  Properties.Settings.Default.downloadConfigFileName;
+			string url = onLineFolder + "/download.config";
+			if (!web.DownloadFile(url, fileNameDownloaded))
+			{
+				MessageBox.Show("Unable to get information from the server " +
+				                "whether a newer version of this application exits.\n\nSearch path:\"" +url+"\".", "Unable connect to server", MessageBoxButtons.OK);
+				return;
+			}
+			
+			ReadConfigFile versionFile = new ReadConfigFile(fileNameDownloaded);
+			if (versionFile.Load() && versionFile.ValuesDictionary.ContainsKey("version"))
+			{
+				string newVersion = versionFile.ValuesDictionary["version"];
+
+				string versionDescription = "";
+				if (versionFile.ValuesDictionary.ContainsKey("versionDescription"))
+					versionDescription = versionFile.ValuesDictionary["versionDescription"];
+
+				if (String.Compare(newVersion, oldVersion) > 0)
+				{   //version from the version file is bigger so let's update
+					DialogResult dialogResult;
+					dialogResult =
+							MessageBox.Show(
+								"A newer version of this application exits on the server.\n\n" +
+								"Description:\n\"" +
+								versionDescription +
+								"\"\n\nDo you want to download and run a new version of this application?",
+								"A new version (" + newVersion + ")", MessageBoxButtons.YesNo);
+					if (dialogResult == DialogResult.Yes) { 
+						url = onLineFolder + "/" + newVersion.Replace('.', '_') + "/Setup.msi";
+						//todo: what if setupfile is not "msi"? what if "exe"
+						string setupFileName = destPath + Properties.Settings.Default.downloadSetupFileName;
+						if (web.DownloadFile(url, setupFileName))
+						{
+							try
+							{
+								Process.Start(setupFileName);
+								Application.Exit();
+
+							}
+							catch (Exception)
+							{
+								//eat this
+							}
+						}
+						else
+						{
+							MessageBox.Show("Unable to download the setup for the new version.\n\nTried to download from:\n\"" + url + "\".", "Unable download Setup", MessageBoxButtons.OK);
+						}
+					}
+				}
+				else
+				{
+					DateTime localDate = DateTime.Now;
+					WriteLine(localDate.ToString(new CultureInfo("en-GB")) + ": This application version is up to date.");
+					
+				}
+			}
+		}
+
+		private void comboHopar_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

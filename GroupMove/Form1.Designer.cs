@@ -47,6 +47,7 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.openDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.reloadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.makeUploadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.devideHandinsOntoGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,17 +56,17 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.reloadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tbFrom
 			// 
 			this.tbFrom.AllowDrop = true;
-			this.tbFrom.Location = new System.Drawing.Point(31, 87);
-			this.tbFrom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.tbFrom.Location = new System.Drawing.Point(46, 134);
+			this.tbFrom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.tbFrom.Name = "tbFrom";
-			this.tbFrom.Size = new System.Drawing.Size(336, 20);
+			this.tbFrom.Size = new System.Drawing.Size(502, 26);
 			this.tbFrom.TabIndex = 2;
 			this.tbFrom.TextChanged += new System.EventHandler(this.tbFrom_TextChanged);
 			this.tbFrom.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbFrom_DragDrop);
@@ -76,10 +77,9 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(31, 71);
-			this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label1.Location = new System.Drawing.Point(46, 109);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(130, 13);
+			this.label1.Size = new System.Drawing.Size(196, 20);
 			this.label1.TabIndex = 1;
 			this.label1.Text = "From: (a zip file or a folder)";
 			this.label1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -88,10 +88,9 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(31, 116);
-			this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label2.Location = new System.Drawing.Point(46, 178);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(151, 13);
+			this.label2.Size = new System.Drawing.Size(225, 20);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "To: (a destination group folder)";
 			this.label2.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -100,10 +99,10 @@
 			// tbTo
 			// 
 			this.tbTo.AllowDrop = true;
-			this.tbTo.Location = new System.Drawing.Point(31, 131);
-			this.tbTo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.tbTo.Location = new System.Drawing.Point(46, 202);
+			this.tbTo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.tbTo.Name = "tbTo";
-			this.tbTo.Size = new System.Drawing.Size(336, 20);
+			this.tbTo.Size = new System.Drawing.Size(502, 26);
 			this.tbTo.TabIndex = 4;
 			this.tbTo.TextChanged += new System.EventHandler(this.tbTo_TextChanged);
 			this.tbTo.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbTo_DragDrop);
@@ -113,10 +112,10 @@
 			// 
 			// btnFrom
 			// 
-			this.btnFrom.Location = new System.Drawing.Point(371, 84);
-			this.btnFrom.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.btnFrom.Location = new System.Drawing.Point(556, 129);
+			this.btnFrom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.btnFrom.Name = "btnFrom";
-			this.btnFrom.Size = new System.Drawing.Size(56, 25);
+			this.btnFrom.Size = new System.Drawing.Size(84, 38);
 			this.btnFrom.TabIndex = 3;
 			this.btnFrom.Text = "B&rowse";
 			this.btnFrom.UseVisualStyleBackColor = true;
@@ -126,10 +125,10 @@
 			// 
 			// btnTo
 			// 
-			this.btnTo.Location = new System.Drawing.Point(371, 129);
-			this.btnTo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.btnTo.Location = new System.Drawing.Point(556, 198);
+			this.btnTo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.btnTo.Name = "btnTo";
-			this.btnTo.Size = new System.Drawing.Size(56, 25);
+			this.btnTo.Size = new System.Drawing.Size(84, 38);
 			this.btnTo.TabIndex = 5;
 			this.btnTo.Text = "Br&owse";
 			this.btnTo.UseVisualStyleBackColor = true;
@@ -139,10 +138,10 @@
 			// 
 			// btnStart
 			// 
-			this.btnStart.Location = new System.Drawing.Point(359, 355);
-			this.btnStart.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.btnStart.Location = new System.Drawing.Point(538, 546);
+			this.btnStart.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.btnStart.Name = "btnStart";
-			this.btnStart.Size = new System.Drawing.Size(68, 25);
+			this.btnStart.Size = new System.Drawing.Size(102, 38);
 			this.btnStart.TabIndex = 6;
 			this.btnStart.Text = "&Start";
 			this.btnStart.UseVisualStyleBackColor = true;
@@ -153,10 +152,10 @@
 			// tbFile
 			// 
 			this.tbFile.AllowDrop = true;
-			this.tbFile.Location = new System.Drawing.Point(31, 42);
-			this.tbFile.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.tbFile.Location = new System.Drawing.Point(46, 65);
+			this.tbFile.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.tbFile.Name = "tbFile";
-			this.tbFile.Size = new System.Drawing.Size(336, 20);
+			this.tbFile.Size = new System.Drawing.Size(502, 26);
 			this.tbFile.TabIndex = 0;
 			this.tbFile.TextChanged += new System.EventHandler(this.tbFile_TextChanged);
 			this.tbFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.tbFile_DragDrop);
@@ -167,10 +166,9 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(31, 27);
-			this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label3.Location = new System.Drawing.Point(46, 42);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(121, 13);
+			this.label3.Size = new System.Drawing.Size(179, 20);
 			this.label3.TabIndex = 1;
 			this.label3.Text = "Groupfile: (csv file or xls)";
 			this.label3.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -178,10 +176,10 @@
 			// 
 			// btnFile
 			// 
-			this.btnFile.Location = new System.Drawing.Point(371, 39);
-			this.btnFile.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.btnFile.Location = new System.Drawing.Point(556, 60);
+			this.btnFile.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.btnFile.Name = "btnFile";
-			this.btnFile.Size = new System.Drawing.Size(56, 25);
+			this.btnFile.Size = new System.Drawing.Size(84, 38);
 			this.btnFile.TabIndex = 1;
 			this.btnFile.Text = "&Browse";
 			this.btnFile.UseVisualStyleBackColor = true;
@@ -191,13 +189,13 @@
 			// 
 			// tbResult
 			// 
-			this.tbResult.Location = new System.Drawing.Point(33, 176);
-			this.tbResult.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.tbResult.Location = new System.Drawing.Point(50, 271);
+			this.tbResult.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.tbResult.Multiline = true;
 			this.tbResult.Name = "tbResult";
 			this.tbResult.ReadOnly = true;
 			this.tbResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.tbResult.Size = new System.Drawing.Size(394, 173);
+			this.tbResult.Size = new System.Drawing.Size(589, 264);
 			this.tbResult.TabIndex = 10;
 			this.tbResult.TabStop = false;
 			this.tbResult.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -206,10 +204,9 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(31, 161);
-			this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.label4.Location = new System.Drawing.Point(46, 248);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(40, 13);
+			this.label4.Size = new System.Drawing.Size(59, 20);
 			this.label4.TabIndex = 8;
 			this.label4.Text = "Result:";
 			this.label4.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -220,11 +217,12 @@
 			this.comboHopar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboHopar.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.comboHopar.FormattingEnabled = true;
-			this.comboHopar.Location = new System.Drawing.Point(261, 356);
-			this.comboHopar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.comboHopar.Location = new System.Drawing.Point(392, 548);
+			this.comboHopar.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.comboHopar.Name = "comboHopar";
-			this.comboHopar.Size = new System.Drawing.Size(87, 21);
+			this.comboHopar.Size = new System.Drawing.Size(128, 28);
 			this.comboHopar.TabIndex = 12;
+			this.comboHopar.SelectedIndexChanged += new System.EventHandler(this.comboHopar_SelectedIndexChanged);
 			this.comboHopar.MouseEnter += new System.EventHandler(this.control_MouseEnter);
 			this.comboHopar.MouseLeave += new System.EventHandler(this.control_MouseLeave);
 			// 
@@ -242,8 +240,8 @@
 			this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 0);
-			this.menuStrip1.Size = new System.Drawing.Size(483, 24);
+			this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 0);
+			this.menuStrip1.Size = new System.Drawing.Size(724, 31);
 			this.menuStrip1.Stretch = false;
 			this.menuStrip1.TabIndex = 14;
 			this.menuStrip1.Text = "menuStrip1";
@@ -260,7 +258,7 @@
 			this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(81, 23);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 29);
 			this.toolStripMenuItem1.Text = "&Commands";
 			this.toolStripMenuItem1.ToolTipText = "Commands will be grayed if the to folder does not exit.\r\n\r\nI hope you can use thi" +
     "s application";
@@ -268,16 +266,25 @@
 			// openDestinationToolStripMenuItem
 			// 
 			this.openDestinationToolStripMenuItem.Name = "openDestinationToolStripMenuItem";
-			this.openDestinationToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.openDestinationToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
 			this.openDestinationToolStripMenuItem.Text = "Open Destination";
 			this.openDestinationToolStripMenuItem.Click += new System.EventHandler(this.btnOpenDest_Click);
 			this.openDestinationToolStripMenuItem.MouseEnter += new System.EventHandler(this.openDestinationToolStripMenuItem_MouseEnter);
 			this.openDestinationToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
 			// 
+			// reloadFileToolStripMenuItem
+			// 
+			this.reloadFileToolStripMenuItem.Name = "reloadFileToolStripMenuItem";
+			this.reloadFileToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
+			this.reloadFileToolStripMenuItem.Text = "Reload file";
+			this.reloadFileToolStripMenuItem.Click += new System.EventHandler(this.reloadFileToolStripMenuItem_Click);
+			this.reloadFileToolStripMenuItem.MouseEnter += new System.EventHandler(this.reloadFileToolStripMenuItem_MouseEnter);
+			this.reloadFileToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			// 
 			// makeUploadFileToolStripMenuItem
 			// 
 			this.makeUploadFileToolStripMenuItem.Name = "makeUploadFileToolStripMenuItem";
-			this.makeUploadFileToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.makeUploadFileToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
 			this.makeUploadFileToolStripMenuItem.Text = "Make upload file";
 			this.makeUploadFileToolStripMenuItem.Click += new System.EventHandler(this.makeUploadFileToolStripMenuItem_Click);
 			this.makeUploadFileToolStripMenuItem.MouseEnter += new System.EventHandler(this.makeUploadFileToolStripMenuItem_MouseEnter);
@@ -286,7 +293,7 @@
 			// devideHandinsOntoGroupsToolStripMenuItem
 			// 
 			this.devideHandinsOntoGroupsToolStripMenuItem.Name = "devideHandinsOntoGroupsToolStripMenuItem";
-			this.devideHandinsOntoGroupsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.devideHandinsOntoGroupsToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
 			this.devideHandinsOntoGroupsToolStripMenuItem.Text = "Devide handins onto groups";
 			this.devideHandinsOntoGroupsToolStripMenuItem.Click += new System.EventHandler(this.devideHandinsOntoGroupsToolStripMenuItem_Click);
 			this.devideHandinsOntoGroupsToolStripMenuItem.MouseEnter += new System.EventHandler(this.devideHandinsOntoGroupsToolStripMenuItem_MouseEnter);
@@ -295,7 +302,7 @@
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.btnClose_Click);
 			this.exitToolStripMenuItem.MouseEnter += new System.EventHandler(this.exitToolStripMenuItem_MouseEnter);
@@ -304,17 +311,18 @@
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.checkForUpdateToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.aboutToolStripMenuItem});
 			this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(44, 23);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(61, 29);
 			this.toolStripMenuItem2.Text = "&Help";
 			// 
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
 			this.helpToolStripMenuItem.Text = "H&elp";
 			this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
 			this.helpToolStripMenuItem.MouseEnter += new System.EventHandler(this.helpToolStripMenuItem_MouseEnter);
@@ -323,7 +331,7 @@
 			// aboutToolStripMenuItem
 			// 
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
 			this.aboutToolStripMenuItem.Text = "&About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.About_Click);
 			this.aboutToolStripMenuItem.MouseEnter += new System.EventHandler(this.aboutToolStripMenuItem_MouseEnter);
@@ -331,10 +339,10 @@
 			// 
 			// statusBar1
 			// 
-			this.statusBar1.Location = new System.Drawing.Point(0, 389);
-			this.statusBar1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.statusBar1.Location = new System.Drawing.Point(0, 598);
+			this.statusBar1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.statusBar1.Name = "statusBar1";
-			this.statusBar1.Size = new System.Drawing.Size(483, 18);
+			this.statusBar1.Size = new System.Drawing.Size(724, 28);
 			this.statusBar1.TabIndex = 15;
 			this.statusBar1.Text = "statusBar1";
 			this.statusBar1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -345,30 +353,31 @@
 			this.textBox1.BackColor = System.Drawing.SystemColors.Control;
 			this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.textBox1.ForeColor = System.Drawing.Color.Red;
-			this.textBox1.Location = new System.Drawing.Point(34, 306);
+			this.textBox1.Location = new System.Drawing.Point(51, 471);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(393, 43);
+			this.textBox1.Size = new System.Drawing.Size(588, 64);
 			this.textBox1.TabIndex = 17;
 			this.textBox1.TabStop = false;
 			this.textBox1.Text = "Warning, when pressing Start you will be using the devided version of the assignm" +
     "ents.";
 			// 
-			// reloadFileToolStripMenuItem
+			// checkForUpdateToolStripMenuItem
 			// 
-			this.reloadFileToolStripMenuItem.Name = "reloadFileToolStripMenuItem";
-			this.reloadFileToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.reloadFileToolStripMenuItem.Text = "Reload file";
-			this.reloadFileToolStripMenuItem.Click += new System.EventHandler(this.reloadFileToolStripMenuItem_Click);
-			this.reloadFileToolStripMenuItem.MouseEnter += new System.EventHandler(this.reloadFileToolStripMenuItem_MouseEnter);
-			this.reloadFileToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+			this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+			this.checkForUpdateToolStripMenuItem.Text = "&Check for update";
+			this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
+			this.checkForUpdateToolStripMenuItem.MouseEnter += new System.EventHandler(this.checkForUpdateToolStripMenuItem_MouseEnter);
+			this.checkForUpdateToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
 			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(483, 407);
+			this.ClientSize = new System.Drawing.Size(724, 626);
 			this.Controls.Add(this.statusBar1);
 			this.Controls.Add(this.comboHopar);
 			this.Controls.Add(this.label4);
@@ -388,7 +397,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStrip1;
-			this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
@@ -430,6 +439,7 @@
 		private System.Windows.Forms.ToolStripMenuItem devideHandinsOntoGroupsToolStripMenuItem;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.ToolStripMenuItem reloadFileToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
 	}
 }
 
