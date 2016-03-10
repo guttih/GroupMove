@@ -222,7 +222,6 @@
 			this.comboHopar.Name = "comboHopar";
 			this.comboHopar.Size = new System.Drawing.Size(128, 28);
 			this.comboHopar.TabIndex = 12;
-			this.comboHopar.SelectedIndexChanged += new System.EventHandler(this.comboHopar_SelectedIndexChanged);
 			this.comboHopar.MouseEnter += new System.EventHandler(this.control_MouseEnter);
 			this.comboHopar.MouseLeave += new System.EventHandler(this.control_MouseLeave);
 			// 

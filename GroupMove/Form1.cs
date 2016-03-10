@@ -37,10 +37,25 @@ namespace GroupMove
 			//run with parameters
 			string[] args = Environment.GetCommandLineArgs();
 
-			if (args.Length > 1)
-				tbFile.Text = args[1];
-			else
-				tbFile.Text = Properties.Settings.Default.lastFile;
+			
+			tbFile.Text = Properties.Settings.Default.lastFile;
+			
+			for(var i = 1; i < args.Length;i++){
+				switch (args[i]){
+					case "/uninstall":
+						Uninstall("{}");
+						break;
+
+					case "/uninstallAll":
+									Uninstall(null);
+									break;
+					default:
+						tbFile.Text = args[i];
+									break;
+				}
+			}
+			
+			
 
 			tbFrom.Text = Properties.Settings.Default.lastFromDir;
             tbTo.Text   = Properties.Settings.Default.LastToDir;
@@ -91,8 +106,37 @@ namespace GroupMove
 
 			tmrKeyPressFileKey.Enabled = true;
         }
+		/// <summary>
+		/// Uninstalls GroupMove
+		/// </summary>
+		/// 
+		/// <param name="productCodeGUID">
+		///		to uninstall a specific product version pass it's GUID here
+		///		to un-install all previous versions, pass null
+		/// </param>
+		private void Uninstall(string productCodeGUID)
+		{
 
-        private void btnFrom_Click(object sender, EventArgs e)
+			AppFunctions funcs = new AppFunctions();
+			if (productCodeGUID != null)
+			{
+				funcs.UninstallIfPreviouslyInstalled(productCodeGUID);
+			}
+			else
+			{
+				string[] prodcutGuis = new[]
+				{
+					/*{09D38014-D150-40BF-AD32-4150C9B687D7} not a version I think*/
+					"{EDEAFEB3-F19C-4041-9A0E-21D46DB195F6}" /*- Version 1.4.4.1*/,
+					"{307E97EB-E6AF-44CF-9026-8D3C730BD044}" /*- Version 1.4.3.1*/,
+					"{09455D04-510E-4F58-B187-0B3B4B06C824}" /*- Version 1.4.2*/,
+					"{6A92025F-076D-4B87-88D8-CF6645C81238}" /*- Version 1.3.6.6*/
+				};
+
+				funcs.UninstallIfPreviouslyInstalled(prodcutGuis);
+			}
+		}
+		private void btnFrom_Click(object sender, EventArgs e)
         {
             browserDlg.Reset();
             browserDlg.Description = "Select source directory...";
@@ -972,9 +1016,8 @@ namespace GroupMove
 		{
 			statusBar1.Text = "Check if there is a new version of GroupMove online";
 		}
-
 		private void checkForUpdateToolStripMenuItem_Click(object sender, EventArgs e)
-		{
+		{	
 			string oldVersion = Properties.Settings.Default.version;
 			GWeb web = new GWeb();
 			string destPath = Path.GetTempPath();
@@ -991,6 +1034,7 @@ namespace GroupMove
 			ReadConfigFile versionFile = new ReadConfigFile(fileNameDownloaded);
 			if (versionFile.Load() && versionFile.ValuesDictionary.ContainsKey("version"))
 			{
+				
 				string newVersion = versionFile.ValuesDictionary["version"];
 
 				string versionDescription = "";
@@ -1012,7 +1056,8 @@ namespace GroupMove
 						//todo: what if setupfile is not "msi"? what if "exe"
 						string setupFileName = destPath + Properties.Settings.Default.downloadSetupFileName;
 						if (web.DownloadFile(url, setupFileName))
-						{
+						{ 
+							Uninstall(null);
 							try
 							{
 								Process.Start(setupFileName);

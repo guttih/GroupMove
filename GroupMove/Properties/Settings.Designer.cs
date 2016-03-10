@@ -71,19 +71,6 @@ namespace GroupMove.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("This version is created to test the former version, there is not funcionality add" +
-            "ed, just a new build.")]
-        public string versionDescription {
-            get {
-                return ((string)(this["versionDescription"]));
-            }
-            set {
-                this["versionDescription"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("downloadGroupMove.config")]
@@ -99,6 +86,18 @@ namespace GroupMove.Properties {
         public string downloadSetupFileName {
             get {
                 return ((string)(this["downloadSetupFileName"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("This version can update it self")]
+        public string versionDescription {
+            get {
+                return ((string)(this["versionDescription"]));
+            }
+            set {
+                this["versionDescription"] = value;
             }
         }
     }

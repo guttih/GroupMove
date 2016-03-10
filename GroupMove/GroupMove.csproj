@@ -110,6 +110,7 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppFunctions.cs" />
     <Compile Include="Entity\Group.cs" />
     <Compile Include="Entity\Groups.cs" />
     <Compile Include="Entity\MySchoolAssignment.cs" />
