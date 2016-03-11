@@ -13,9 +13,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using System.IO.Compression;
 using System.Reflection;
 using GroupMove.Entity;
+using Microsoft.Win32;
 using Excel = Microsoft.Office.Interop.Excel;
 
 
@@ -105,7 +105,20 @@ namespace GroupMove
             statusBar1.Text = "";
 
 			tmrKeyPressFileKey.Enabled = true;
+	        test();
+
         }
+
+	    private void test()
+	    {
+			
+			/*   AppFunctions Func = new AppFunctions();
+		    RegistryKey key;
+		    
+		    string strValue = Func.GetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "InstallationPath");
+			Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
+			WriteLine("----------- " + strValue);*/
+		}
 		/// <summary>
 		/// Uninstalls GroupMove
 		/// </summary>
@@ -175,7 +188,7 @@ namespace GroupMove
             {
                 xmlString = File.ReadAllText(fullFileName);
             }
-            catch (IOException e)
+            catch (IOException)
             {
                 Console.WriteLine("error opening xml file");
                 return false;
@@ -218,17 +231,13 @@ namespace GroupMove
 
         private string[][] getAssignmentFromExcel(string fullFileName)
         {
-            int ret = -1;
 
             Excel.Workbook MyBook = null;
             Excel.Worksheet MySheet = null;
 
-
             var myApp = new Excel.Application();
 
-
-            
-            MyBook = myApp.Workbooks.Open(fullFileName);
+           MyBook = myApp.Workbooks.Open(fullFileName);
 
 
             MySheet = (Excel.Worksheet)MyBook.Sheets[1]; // Explicit cast is not required here
@@ -271,8 +280,6 @@ namespace GroupMove
 
         private string[][] getAssignment(string fullFileName)
         {
-            string str;
-
             StreamReader sr;
             try
             {
@@ -453,10 +460,7 @@ namespace GroupMove
             using (ZipArchive archive = ZipFile.OpenRead(pathToZip))
             {
                 ret = 1;
-				int x = 0;
-				if (pathToZip == "C:\\Users\\GuðjónHólm\\Desktop\\testMove\\out\\58668\\1373926\\Verkefni_1.zip")
-					x = 1;
-	            bool firstEntry = false;
+
 				foreach (ZipArchiveEntry entry in archive.Entries)
                 {
 	                
@@ -742,7 +746,7 @@ namespace GroupMove
             {
                 attr = File.GetAttributes(path);
             }
-            catch (FileNotFoundException fnfe)
+            catch (FileNotFoundException)
             {
                 return -1;
             }

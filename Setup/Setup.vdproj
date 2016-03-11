@@ -83,13 +83,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6AC2D41026AF4A7ADF499C11FD497790"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D3D268162456584DC5ADA76BF26689EC"
+        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -101,7 +95,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
+        "OwnerKey" = "8:_D3D268162456584DC5ADA76BF26689EC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6AC2D41026AF4A7ADF499C11FD497790"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -206,11 +206,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_0BC24A71FCFFA40CC4F8F87F6E166AC8"
-                    {
-                    "Name" = "8:System.IO.Compression.FileSystem.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -257,11 +252,6 @@
             "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6AC2D41026AF4A7ADF499C11FD497790"
-                    {
-                    "Name" = "8:ICSharpCode.SharpZipLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ICSharpCode.SharpZipLib.dll"
             "TargetName" = "8:"
@@ -328,11 +318,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_D3D268162456584DC5ADA76BF26689EC"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -379,11 +364,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_E92AB91A5189142F01F4CC0100C6AD1C"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -585,10 +565,32 @@
                             "Name" = "8:[Manufacturer]"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
-                            "DeleteAtUninstall" = "11:FALSE"
-                            "Transitive" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:TRUE"
+                            "Transitive" = "11:TRUE"
                                 "Keys"
                                 {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_451C0EE3FFBE4728A431FD98A56FB9D4"
+                                    {
+                                    "Name" = "8:GroupMove"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                        }
+                                        "Values"
+                                        {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_8B106B411D204E82B47A99DA49970B6F"
+                                            {
+                                            "Name" = "8:InstallationPath"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:TRUE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:[TARGETDIR]"
+                                            }
+                                        }
+                                    }
                                 }
                                 "Values"
                                 {
@@ -1096,7 +1098,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9B4F868AF1934202B1657261AB86FCAB"
             {
-            "SourcePath" = "8:..\\GroupMove\\obj\\Release\\GroupMove.exe"
+            "SourcePath" = "8:..\\GroupMove\\obj\\Debug\\GroupMove.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_69DE4A1863D343999927405C4C84D3E1"

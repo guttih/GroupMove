@@ -10,7 +10,7 @@ namespace GroupMove.Entity
 {
 	internal class MySchoolAssignment
 	{
-		private readonly string[][] _assignment;
+		
 		private Groups _groups;
 		private MySchoolAssignment() {}  //make private, must be constructed with parameters
 		public MySchoolAssignment(string[][] assignment)

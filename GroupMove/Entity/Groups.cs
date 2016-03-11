@@ -156,7 +156,6 @@ namespace GroupMove.Entity
 
 		private bool AddAssignmentToNextGroupIfFoundInGroup(String assignmentID, int [] searchCount)
 		{
-			double maxRatio = 0;
 			int index = FindNextNoneZero(searchCount, 0);
 			while (  (index < _groupList.Count )  &&  (index > -1 )  )
 			{

@@ -35,7 +35,7 @@ namespace GroupMove
 					myWebClient.DownloadFile(fullHrefToFile, fullFileDestinationName);
 					success = true;
 				}
-				catch (Exception e)
+				catch (Exception)
 				{
 					//EAT THIS
 				}
