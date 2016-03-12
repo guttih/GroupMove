@@ -105,10 +105,7 @@ namespace GroupMove
             statusBar1.Text = "";
 
 			tmrKeyPressFileKey.Enabled = true;
-	        test();
 	        saveToRegistry();
-
-
         }
 
 	    private void saveToRegistry()
@@ -126,16 +123,7 @@ namespace GroupMove
 			//Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
 
 		}
-		private void test()
-	    {
-			
-			/*   AppFunctions Func = new AppFunctions();
-		    RegistryKey key;
-		    
-		    string strValue = Func.GetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "InstallationPath");
-			Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
-			WriteLine("----------- " + strValue);*/
-		}
+
 		/// <summary>
 		/// Uninstalls GroupMove
 		/// </summary>
