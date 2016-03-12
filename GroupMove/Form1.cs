@@ -118,9 +118,9 @@ namespace GroupMove
 			Func.SetRegistryKeyValue(key, "version", str);
 		    str = Properties.Settings.Default.productCode;
 			Func.SetRegistryKeyValue(key, "productCode", str);
-			key.Close();
+		    key?.Close();
 
-			//Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
+		    //Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
 
 		}
 
@@ -145,7 +145,7 @@ namespace GroupMove
 				string[] prodcutGuis = new[]
 				{
 					
-					
+					//1.4.1.1 er með bilað upgrade code
 					"{307E97EB-E6AF-44CF-9026-8D3C730BD044}" /*- Version 1.4.3.1, og 1.5.0.0*/, 
 					"{09455D04-510E-4F58-B187-0B3B4B06C824}" /*- Version 1.4.2*/, /*1.4.4.1 yfirskrifar þetta sem er gott*/
 					"{6A92025F-076D-4B87-88D8-CF6645C81238}" /*- Version 1.3.6.6*/,/*1.4.4.1 yfirskrifar þetta sem er gott*/
@@ -1075,6 +1075,7 @@ namespace GroupMove
 							try
 							{
 								Process.Start(setupFileName);
+								System.Threading.Thread.Sleep(5000);
 								Application.Exit();
 
 							}

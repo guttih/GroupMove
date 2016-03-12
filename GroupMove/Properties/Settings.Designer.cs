@@ -61,7 +61,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.4.2.2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5.0.0")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -91,7 +91,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("This version can update it self")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5.0.0 This version and the following versions can update itself ")]
         public string versionDescription {
             get {
                 return ((string)(this["versionDescription"]));
