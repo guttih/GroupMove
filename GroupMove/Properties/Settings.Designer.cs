@@ -100,5 +100,17 @@ namespace GroupMove.Properties {
                 this["versionDescription"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{307E97EB-E6AF-44CF-9026-8D3C730BD044}")]
+        public string productCode {
+            get {
+                return ((string)(this["productCode"]));
+            }
+            set {
+                this["productCode"] = value;
+            }
+        }
     }
 }

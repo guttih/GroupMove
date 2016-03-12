@@ -161,32 +161,45 @@ namespace GroupMove
 		/// <returns>On success : true, otherwize false</returns>
 		public bool SetRegistryKeyValue(string fullPathToKey, string valueName, string value)
 		{
+			bool b;
 			RegistryKey key = RegistryKeyOpenPath(fullPathToKey, true);
+			
+			b = SetRegistryKeyValue(key, valueName, value);
+			key.Close();
+			return b;
+		}
+
+		public bool SetRegistryKeyValue(RegistryKey key, string valueName, string value)
+		{
 			if (key == null)
 				return false;
 			try
 			{
 				key.SetValue(valueName, value);
-				key.Close();
 			}
 			catch (Exception)
 			{
 				return false;
 			}
-			
+
 
 			return true;
 		}
 
 		public bool SetRegistryKeyValue(string fullPathToKey, string valueName, int value)
 		{
+			bool b;
 			RegistryKey key = RegistryKeyOpenPath(fullPathToKey, true);
-			if (key == null)
-				return false;
+			b = SetRegistryKeyValue(key, valueName, value);
+			key.Close();
+			return b;
+		}
+
+		public bool SetRegistryKeyValue(RegistryKey key, string valueName, int value)
+		{
 			try
 			{
 				key.SetValue(valueName, value);
-				key.Close();
 			}
 			catch (Exception)
 			{
@@ -206,7 +219,7 @@ namespace GroupMove
 		/// </summary>
 		/// <param name="fullPathToKey">The path to and including the name of the subkey to be opened delimited by '\\'</param>
 		/// <returns></returns>
-		private RegistryKey RegistryKeyOpenPath(string fullPathToKey, bool openWithWriteAccess)
+		public RegistryKey RegistryKeyOpenPath(string fullPathToKey, bool openWithWriteAccess)
 		{
 			RegistryKey regRoot;
 

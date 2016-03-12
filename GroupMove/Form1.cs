@@ -43,7 +43,7 @@ namespace GroupMove
 			for(var i = 1; i < args.Length;i++){
 				switch (args[i]){
 					case "/uninstall":
-						Uninstall("{}");
+						Uninstall(null);
 						break;
 
 					case "/uninstallAll":
@@ -106,10 +106,27 @@ namespace GroupMove
 
 			tmrKeyPressFileKey.Enabled = true;
 	        test();
+	        saveToRegistry();
+
 
         }
 
-	    private void test()
+	    private void saveToRegistry()
+	    {
+			AppFunctions Func = new AppFunctions();
+		    string str = Application.StartupPath;
+		    RegistryKey key = Func.RegistryKeyOpenPath(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", true);
+			Func.SetRegistryKeyValue(key, "installationPath", str);
+		    str = Properties.Settings.Default.version;
+			Func.SetRegistryKeyValue(key, "version", str);
+		    str = Properties.Settings.Default.productCode;
+			Func.SetRegistryKeyValue(key, "productCode", str);
+			key.Close();
+
+			//Func.SetRegistryKeyValue(@"HKEY_CURRENT_USER\SOFTWARE\guttih\GroupMove", "ProductCode", "{12345-6789}");
+
+		}
+		private void test()
 	    {
 			
 			/*   AppFunctions Func = new AppFunctions();
@@ -139,12 +156,17 @@ namespace GroupMove
 			{
 				string[] prodcutGuis = new[]
 				{
-					/*{09D38014-D150-40BF-AD32-4150C9B687D7} not a version I think*/
-					"{EDEAFEB3-F19C-4041-9A0E-21D46DB195F6}" /*- Version 1.4.4.1*/,
-					"{307E97EB-E6AF-44CF-9026-8D3C730BD044}" /*- Version 1.4.3.1*/,
-					"{09455D04-510E-4F58-B187-0B3B4B06C824}" /*- Version 1.4.2*/,
-					"{6A92025F-076D-4B87-88D8-CF6645C81238}" /*- Version 1.3.6.6*/
+					
+					
+					"{307E97EB-E6AF-44CF-9026-8D3C730BD044}" /*- Version 1.4.3.1, og 1.5.0.0*/, 
+					"{09455D04-510E-4F58-B187-0B3B4B06C824}" /*- Version 1.4.2*/, /*1.4.4.1 yfirskrifar þetta sem er gott*/
+					"{6A92025F-076D-4B87-88D8-CF6645C81238}" /*- Version 1.3.6.6*/,/*1.4.4.1 yfirskrifar þetta sem er gott*/
+					"{73E84FB2-AC29-4EE6-B72C-81517EE0AEFB}" /*- Version 1.3.1.1*/,/*1.4.4.1 yfirskrifar þetta sem er gott*/
+					"{D7F420A4-153A-4BBF-9366-4E5614ED8A6F}"  /*- Version 1.2.1.0 og Version 1.1.0.0*/,/*1.4.4.1 yfirskrifar þetta sem er gott*/
+					"{9AA8BBC3-FE40-4248-994C-7FA4A82E45AF}"  /*- Version 1.0.1.0  upgrade code: {45CA6C9F-57D6-4684-828D-56843802D586}*/
 				};
+
+				//1.4.5 upgrade code before change {45CA6C9F-57D6-4684-828D-56843802D586}
 
 				funcs.UninstallIfPreviouslyInstalled(prodcutGuis);
 			}

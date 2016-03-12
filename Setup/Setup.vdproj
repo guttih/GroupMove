@@ -83,13 +83,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0BC24A71FCFFA40CC4F8F87F6E166AC8"
+        "OwnerKey" = "8:_6AC2D41026AF4A7ADF499C11FD497790"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -101,7 +95,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6AC2D41026AF4A7ADF499C11FD497790"
+        "OwnerKey" = "8:_0BC24A71FCFFA40CC4F8F87F6E166AC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -206,6 +206,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_0BC24A71FCFFA40CC4F8F87F6E166AC8"
+                    {
+                    "Name" = "8:System.IO.Compression.FileSystem.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Compression.FileSystem.dll"
             "TargetName" = "8:"
@@ -252,6 +257,11 @@
             "AssemblyAsmDisplayName" = "8:ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_6AC2D41026AF4A7ADF499C11FD497790"
+                    {
+                    "Name" = "8:ICSharpCode.SharpZipLib.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:ICSharpCode.SharpZipLib.dll"
             "TargetName" = "8:"
@@ -318,6 +328,11 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
+                    "_D3D268162456584DC5ADA76BF26689EC"
+                    {
+                    "Name" = "8:System.Net.Http.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -364,6 +379,11 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
+                    "_E92AB91A5189142F01F4CC0100C6AD1C"
+                    {
+                    "Name" = "8:System.IO.Compression.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -485,8 +505,8 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GroupMove"
         "ProductCode" = "8:{307E97EB-E6AF-44CF-9026-8D3C730BD044}"
-        "PackageCode" = "8:{ACF22482-5955-4436-9138-EF16F206CB3A}"
-        "UpgradeCode" = "8:{09455D04-510E-4F58-B187-0B3B4B06C824}"
+        "PackageCode" = "8:{960F87AE-B986-483B-B9D2-5F701B13A9D2}"
+        "UpgradeCode" = "8:{45CA6C9F-57D6-4684-828D-56843802D586}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -496,7 +516,7 @@
         "Manufacturer" = "8:guttih"
         "ARPHELPTELEPHONE" = "8:8225470"
         "ARPHELPLINK" = "8:http://www.guttih.com/groupmove/help"
-        "Title" = "8:Setup"
+        "Title" = "8:Setup for GroupMove"
         "Subject" = "8:Application for extracting groups from myschool assignments"
         "ARPCONTACT" = "8:Guðjón Hólm Sigurðsson"
         "Keywords" = "8:GroupMove Setup"

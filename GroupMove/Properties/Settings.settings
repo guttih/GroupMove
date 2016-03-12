@@ -23,5 +23,8 @@
     <Setting Name="versionDescription" Type="System.String" Scope="User">
       <Value Profile="(Default)">This version can update it self</Value>
     </Setting>
+    <Setting Name="productCode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{307E97EB-E6AF-44CF-9026-8D3C730BD044}</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
