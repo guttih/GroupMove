@@ -77,6 +77,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9B4F868AF1934202B1657261AB86FCAB"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -96,12 +102,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0BC24A71FCFFA40CC4F8F87F6E166AC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -505,7 +505,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GroupMove"
         "ProductCode" = "8:{307E97EB-E6AF-44CF-9026-8D3C730BD044}"
-        "PackageCode" = "8:{960F87AE-B986-483B-B9D2-5F701B13A9D2}"
+        "PackageCode" = "8:{9FFFFAA1-507E-4A1D-B6B7-6D072126B9CA}"
         "UpgradeCode" = "8:{45CA6C9F-57D6-4684-828D-56843802D586}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -528,7 +528,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:cd ..\r\ndir\r\nPostSetup.bat \"$(ProjectDir)\" $(Configuration)"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
@@ -1118,7 +1118,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9B4F868AF1934202B1657261AB86FCAB"
             {
-            "SourcePath" = "8:..\\GroupMove\\obj\\Debug\\GroupMove.exe"
+            "SourcePath" = "8:..\\GroupMove\\obj\\Release\\GroupMove.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_69DE4A1863D343999927405C4C84D3E1"

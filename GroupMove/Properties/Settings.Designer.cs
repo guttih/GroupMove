@@ -61,7 +61,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.5.0.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5.0.1")]
         public string version {
             get {
                 return ((string)(this["version"]));
