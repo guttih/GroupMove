@@ -77,12 +77,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9B4F868AF1934202B1657261AB86FCAB"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -102,6 +96,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0BC24A71FCFFA40CC4F8F87F6E166AC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E92AB91A5189142F01F4CC0100C6AD1C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -504,15 +504,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GroupMove"
-        "ProductCode" = "8:{307E97EB-E6AF-44CF-9026-8D3C730BD044}"
-        "PackageCode" = "8:{9FFFFAA1-507E-4A1D-B6B7-6D072126B9CA}"
+        "ProductCode" = "8:{EE22E925-C13B-4BC2-B9D0-EF05E1674313}"
+        "PackageCode" = "8:{A09234F3-437E-471B-8452-644224C8B7DF}"
         "UpgradeCode" = "8:{45CA6C9F-57D6-4684-828D-56843802D586}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.4.5"
+        "ProductVersion" = "8:1.5"
         "Manufacturer" = "8:guttih"
         "ARPHELPTELEPHONE" = "8:8225470"
         "ARPHELPLINK" = "8:http://www.guttih.com/groupmove/help"

@@ -52,11 +52,12 @@
 			this.devideHandinsOntoGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.selectSpecificSolutionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -250,6 +251,7 @@
 			// 
 			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openDestinationToolStripMenuItem,
+            this.selectSpecificSolutionsToolStripMenuItem,
             this.reloadFileToolStripMenuItem,
             this.makeUploadFileToolStripMenuItem,
             this.devideHandinsOntoGroupsToolStripMenuItem,
@@ -318,6 +320,15 @@
 			this.toolStripMenuItem2.Size = new System.Drawing.Size(61, 29);
 			this.toolStripMenuItem2.Text = "&Help";
 			// 
+			// checkForUpdateToolStripMenuItem
+			// 
+			this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
+			this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
+			this.checkForUpdateToolStripMenuItem.Text = "&Check for update";
+			this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
+			this.checkForUpdateToolStripMenuItem.MouseEnter += new System.EventHandler(this.checkForUpdateToolStripMenuItem_MouseEnter);
+			this.checkForUpdateToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			// 
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
@@ -363,14 +374,12 @@
 			this.textBox1.Text = "Warning, when pressing Start you will be using the devided version of the assignm" +
     "ents.";
 			// 
-			// checkForUpdateToolStripMenuItem
+			// selectSpecificSolutionsToolStripMenuItem
 			// 
-			this.checkForUpdateToolStripMenuItem.Name = "checkForUpdateToolStripMenuItem";
-			this.checkForUpdateToolStripMenuItem.Size = new System.Drawing.Size(233, 30);
-			this.checkForUpdateToolStripMenuItem.Text = "&Check for update";
-			this.checkForUpdateToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdateToolStripMenuItem_Click);
-			this.checkForUpdateToolStripMenuItem.MouseEnter += new System.EventHandler(this.checkForUpdateToolStripMenuItem_MouseEnter);
-			this.checkForUpdateToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			this.selectSpecificSolutionsToolStripMenuItem.Name = "selectSpecificSolutionsToolStripMenuItem";
+			this.selectSpecificSolutionsToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
+			this.selectSpecificSolutionsToolStripMenuItem.Text = "Select specific solutions";
+			this.selectSpecificSolutionsToolStripMenuItem.Click += new System.EventHandler(this.selectSpecificSolutionsToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -439,6 +448,7 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.ToolStripMenuItem reloadFileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem selectSpecificSolutionsToolStripMenuItem;
 	}
 }
 

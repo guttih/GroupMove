@@ -54,8 +54,6 @@ namespace GroupMove
 									break;
 				}
 			}
-			
-			
 
 			tbFrom.Text = Properties.Settings.Default.lastFromDir;
             tbTo.Text   = Properties.Settings.Default.LastToDir;
@@ -146,6 +144,7 @@ namespace GroupMove
 				{
 					
 					//1.4.1.1 er með bilað upgrade code
+					"{EE22E925-C13B-4BC2-B9D0-EF05E1674313}" /*- Version 1.5.1.0*/,
 					"{307E97EB-E6AF-44CF-9026-8D3C730BD044}" /*- Version 1.4.3.1, og 1.5.0.0*/, 
 					"{09455D04-510E-4F58-B187-0B3B4B06C824}" /*- Version 1.4.2*/, /*1.4.4.1 yfirskrifar þetta sem er gott*/
 					"{6A92025F-076D-4B87-88D8-CF6645C81238}" /*- Version 1.3.6.6*/,/*1.4.4.1 yfirskrifar þetta sem er gott*/
@@ -185,57 +184,6 @@ namespace GroupMove
             browserFileDlg.FileName = tbFile.Text;
             if (browserFileDlg.ShowDialog() == DialogResult.OK)
                 tbFile.Text = browserFileDlg.FileName;
-        }
-
-        //This function is not implemented yet, And I am not shure that I will do that anyway.
-        private bool copyAssignmentsFromXml(string fullFileName, string desitnationFolder)
-        {
-            StringBuilder output = new StringBuilder();
-
-            string xmlString;
-
-            try
-            {
-                xmlString = File.ReadAllText(fullFileName);
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("error opening xml file");
-                return false;
-            }
-
-            // Create an XmlReader
-            using (XmlReader reader = XmlReader.Create(new StringReader(xmlString)))
-            {
-                XmlWriterSettings ws = new XmlWriterSettings();
-                ws.Indent = true;
-                using (XmlWriter writer = XmlWriter.Create(output, ws))
-                {
-
-                    if (!reader.Read())
-                        return false; //no Declaration or ProcessingInstruction
-
-                    var ret = reader.Read();
-                    ret = reader.Read();
-
-                    if (!ret || reader.NodeType !=XmlNodeType.Element || reader.Name != "verkefni")
-                        return false;
-                    ret = reader.Read();
-                    while (ret && reader.Read() && reader.NodeType == XmlNodeType.Element  && reader.Name == "hopur")
-                    {
-                        if (!reader.Read() || reader.NodeType != XmlNodeType.Text)
-                            return true;//getting this far will be considered success.
-
-                        Console.WriteLine("Text: " + reader.Value);
-                        if (!reader.Read()) return true;//end element
-                        ret = reader.Read(); //white space
-
-                    }
-                 }
-
-              }
-
-            return true;
         }
 
 
@@ -638,6 +586,7 @@ namespace GroupMove
             openDestinationToolStripMenuItem.Enabled = toExists;
 
             comboHopar.Enabled = btnStart.Enabled;
+	        selectSpecificSolutionsToolStripMenuItem.Enabled = btnStart.Enabled;
 
 			ShowSplitupWarning();
 
@@ -731,24 +680,71 @@ namespace GroupMove
             SetButtonStatus();
            
             WriteLine("Done reading group file!");
-           
+
+			PrintNoReturns(arrSkil);
             EnableAllControls(this, true);
             SetButtonStatus();
         }
 
+	    private void PrintNoReturns(string[][] arr)
+	    {
+			Dictionary<string, HopurStats> hopar = new Dictionary<string, HopurStats>();
+		    bool firstLine = true;
+			WriteLine("\n - Assignment submission stats - ");//ignoring the header
+			WriteLine("Data lines: " + (arr.Length - 1));//ignoring the header
+			foreach (var item in arr)
+		    {
+			    if (!firstLine) //ignore the header
+				{ 
+					string hopNafn = item[3];
 
+					if (!hopar.ContainsKey(hopNafn))
+					{
+						hopar.Add(item[3], new HopurStats());
 
-        //pathToWhat 
-        //    returns:
-        //       1 if a directory
-        //       2 if a file
-        //       3 if a csv file
-        //       4 if a zip fie
-        //       5 if a xls file
-        //       5 if a xlsw file
-        //       a negative number if an error occurrs
-        //       -1 if path does not point to a file or a directory
-        private int pathToWhat(string path)
+					}
+
+					if (string.IsNullOrEmpty(item[2]))
+					{
+						hopar[hopNafn].NotSubmitted++;
+					}
+					else
+					{
+						hopar[hopNafn].Submitted++;
+					}
+				}
+				firstLine = false;
+			}
+
+		    HopurStats subTotal = new HopurStats();
+		    foreach (var item in hopar)
+		    {
+				Write(item.Key+ " :\t");   
+				Write("Submitts : "+item.Value.Submitted);
+				Write("\tNo submitts : " + item.Value.NotSubmitted);
+				WriteLine("\tTotal lines : " + (item.Value.Submitted + item.Value.NotSubmitted));
+				subTotal.NotSubmitted += item.Value.NotSubmitted;
+				subTotal.Submitted += item.Value.Submitted;				
+			}
+			WriteLine("\t- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+			Write(" Total " + " :\t");
+			Write("Submitts : " + subTotal.Submitted);
+			Write("\tNo submitts : " + subTotal.NotSubmitted);
+			WriteLine("\tTotal lines : " + (subTotal.Submitted + subTotal.NotSubmitted));
+
+		}
+
+		//pathToWhat 
+		//    returns:
+		//       1 if a directory
+		//       2 if a file
+		//       3 if a csv file
+		//       4 if a zip fie
+		//       5 if a xls file
+		//       5 if a xlsw file
+		//       a negative number if an error occurrs
+		//       -1 if path does not point to a file or a directory
+		private int pathToWhat(string path)
         {
             FileAttributes attr;
 
@@ -1093,7 +1089,7 @@ namespace GroupMove
 				else
 				{
 					DateTime localDate = DateTime.Now;
-					WriteLine(localDate.ToString(new CultureInfo("en-GB")) + ": This application version is up to date.");
+					WriteLine(localDate.ToString(new CultureInfo("en-GB")) + ": This version of the application is up to date.");
 					
 				}
 			}
@@ -1102,6 +1098,26 @@ namespace GroupMove
 		private void comboHopar_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			
+		}
+
+		private void selectSpecificSolutionsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FormSelectGroups form = new FormSelectGroups(arrSkil);
+			DialogResult result = form.ShowDialog();
+			string str = "stuff";
+			string[] sel;
+			if (result == DialogResult.OK)
+			{
+				str = "all is ok";
+				sel = form.Selected;
+				foreach (var item in sel)
+				{
+					MessageBox.Show(item, "Todo: extract this item from the zip",MessageBoxButtons.OK);
+				}
+				
+				
+			}
+
 		}
 	}
 }
