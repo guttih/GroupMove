@@ -61,7 +61,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.5.1.0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5.1.1")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -91,8 +91,8 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("When reading a file, you see how many submissions and how many no sub missions th" +
-            "ere are")]
+        [global::System.Configuration.DefaultSettingValueAttribute("You can now select specific assignments to extract.  When reading a file, you see" +
+            " how many submissions and how many no sub missions there are.")]
         public string versionDescription {
             get {
                 return ((string)(this["versionDescription"]));

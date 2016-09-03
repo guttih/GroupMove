@@ -355,6 +355,18 @@ namespace GroupMove
             return true;
         }
 
+	    private void moveAssignments(List<string> verkHopaNumbers)
+	    {
+			int ret = pathToWhat(tbFrom.Text);
+
+			if (ret == 1) //directory
+				moveAssignments(verkHopaNumbers.ToArray(), tbFrom.Text, tbTo.Text);
+			else if (ret == 4)
+				unZipAssignments(verkHopaNumbers.ToArray(), tbFrom.Text, tbTo.Text);
+			else
+				MessageBox.Show("Invalid value in the From textbox", "Error", MessageBoxButtons.OK);
+
+		}
         private void btnStart_Click(object sender, EventArgs e)
         {
             tbResult.Clear();
@@ -379,14 +391,7 @@ namespace GroupMove
         }
             
             verkHoparID.Sort();
-            int ret = pathToWhat(tbFrom.Text);
-
-            if (ret == 1) //directory
-                moveAssignments(verkHoparID.ToArray(), tbFrom.Text, tbTo.Text);
-            else if (ret == 4)
-                unZipAssignments(verkHoparID.ToArray(), tbFrom.Text, tbTo.Text);
-        else
-            MessageBox.Show("Invalid value in the From textbox", "Error", MessageBoxButtons.OK);
+	        moveAssignments(verkHoparID);
 
 
         }
@@ -1105,17 +1110,20 @@ namespace GroupMove
 			FormSelectGroups form = new FormSelectGroups(arrSkil);
 			DialogResult result = form.ShowDialog();
 			string str = "stuff";
-			string[] sel;
+			
 			if (result == DialogResult.OK)
 			{
 				str = "all is ok";
-				sel = form.Selected;
-				foreach (var item in sel)
+				var verkHoparID = form.Selected;
+				verkHoparID.Sort();
+				moveAssignments(verkHoparID);
+				WriteLine("Assignments to extract:");
+				foreach (var item in verkHoparID)
 				{
-					MessageBox.Show(item, "Todo: extract this item from the zip",MessageBoxButtons.OK);
+					WriteLine(item);
 				}
-				
-				
+				moveAssignments(verkHoparID);
+
 			}
 
 		}

@@ -13,12 +13,12 @@ namespace GroupMove
 	public partial class FormSelectGroups : Form
 	{
 		private readonly string[][] _arrSkil;
-		List<String> _notSelected;
-		List<String> _selected;
+		private List<String> _notSelected;
+		private List<String> _selected;
 		/// <summary>
 		/// returns an array of strings with the selected solutions
 		/// </summary>
-		public string [] Selected => getSelected();
+		public List<String> Selected => GetSelected();
 
 		public FormSelectGroups(string[][] arrSkil)
 		{
@@ -28,9 +28,9 @@ namespace GroupMove
 			InitializeComponent();
 		}
 
-		string[] getSelected()
+		private List<String> GetSelected()
 		{
-			return _selected.ToArray();
+			return _selected;
 		}
 		private void FormSelectGroups_Load(object sender, EventArgs e)
 		{

@@ -1,4 +1,6 @@
 Date	    Time  Version  
+03.09.2016 12:00  1.5.1.1 
+	You can now select specific assignments to extract.  When reading a file, you see how many submissions and how many no sub missions there are.
 04.03.2016 18:00  1.4.2.0  
 	After reading a xls file the appliction will close the excel workbook and therefore fixing bug that left a instance of excel running.
 
