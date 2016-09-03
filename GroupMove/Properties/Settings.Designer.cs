@@ -91,8 +91,9 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("You can now select specific assignments to extract.  When reading a file, you see" +
-            " how many submissions and how many no sub missions there are.")]
+        [global::System.Configuration.DefaultSettingValueAttribute("You can now select specific assignments to extract. When reading a file, you see " +
+            "how many submissions and how many no sub missions there are.  Added also select " +
+            "count and add all buttons to the specific solutions form.")]
         public string versionDescription {
             get {
                 return ((string)(this["versionDescription"]));

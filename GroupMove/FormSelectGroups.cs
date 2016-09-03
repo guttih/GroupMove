@@ -15,10 +15,10 @@ namespace GroupMove
 		private readonly string[][] _arrSkil;
 		private List<String> _notSelected;
 		private List<String> _selected;
-		/// <summary>
-		/// returns an array of strings with the selected solutions
-		/// </summary>
+		private ToolTip toolTips;
+
 		public List<String> Selected => GetSelected();
+
 
 		public FormSelectGroups(string[][] arrSkil)
 		{
@@ -32,8 +32,38 @@ namespace GroupMove
 		{
 			return _selected;
 		}
+
+		private void UpdateView()
+		{
+			
+			lblNotSelectedCount.Text = "" + _notSelected.Count();
+			lblSelectedCount.Text = "" + _selected.Count();
+		}
+
+		private void InitTooltips()
+		{
+			toolTips = new ToolTip();
+
+			// Set up the delays for the ToolTip.
+			toolTips.AutoPopDelay = 5000;
+			toolTips.InitialDelay = 1000;
+			toolTips.ReshowDelay = 500;
+			// Force the ToolTip text to be displayed whether or not the form is active.
+			toolTips.ShowAlways = true;
+
+			// Set up the ToolTip text for the Button and Checkbox.
+
+			toolTips.SetToolTip(this.btnRemove, "Move selected items from the \"selected\" box to the \"not selected\" box.");
+			toolTips.SetToolTip(this.btnAdd,    "Move selected items from the \"not selected\" box to the \"selected\" box.");
+			toolTips.SetToolTip(this.btnAddAll, "Move all items from the \"selected\" box to the \"not selected\" box.");
+			toolTips.SetToolTip(this.btnRemoveAll, "Move all items from the \"not selected\" box to the \"selected\" box.");
+			toolTips.SetToolTip(this.btnOk, "Start moving assignments.");
+			toolTips.SetToolTip(this.btnCancel, "Cancel and close this dialog.");
+		}
 		private void FormSelectGroups_Load(object sender, EventArgs e)
 		{
+			InitTooltips();
+
 			string str;
 			for (int i = 1; i < _arrSkil.Length; i++)
 			{
@@ -44,6 +74,7 @@ namespace GroupMove
 			_notSelected.Sort();
 			lbNotSelected.DataSource = _notSelected;
 			lbSelected.DataSource = _selected;
+			UpdateView();
 		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
@@ -83,7 +114,7 @@ namespace GroupMove
 			lbTo.DataSource = null;
 			lbFrom.DataSource = listFrom;
 			lbTo.DataSource = listTo;
-
+			UpdateView();
 		}
 
 	private void btnAdd_Click(object sender, EventArgs e)
@@ -100,6 +131,25 @@ namespace GroupMove
 		private void BtnOk_Click(object sender, EventArgs e)
 		{
 			
+		}
+
+		private void btnAddAll_Click(object sender, EventArgs e)
+		{
+			for (int i = 0; i < lbNotSelected.Items.Count; i++)
+			{
+				lbNotSelected.SetSelected(i, true);
+			}
+			moveItems(lbNotSelected, lbSelected);
+
+		}
+
+		private void btnRemoveAll_Click(object sender, EventArgs e)
+		{
+			for (int i = 0; i < lbSelected.Items.Count; i++)
+			{
+				lbSelected.SetSelected(i, true);
+			}
+			moveItems(lbSelected, lbNotSelected);
 		}
 	}
 }
