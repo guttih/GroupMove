@@ -40,6 +40,96 @@ namespace GroupMove
 			lblSelectedCount.Text = "" + _selected.Count();
 		}
 
+		private void CreateContextMenu(ListBox listBox)
+		{
+			ContextMenu contextMenu1;
+			contextMenu1 = new ContextMenu();
+			MenuItem menuItem1;
+			menuItem1 = new MenuItem();
+			MenuItem menuItem2;
+			menuItem2 = new MenuItem();
+			MenuItem menuItem3;
+			menuItem3 = new MenuItem();
+
+			contextMenu1.MenuItems.AddRange(new MenuItem[] { menuItem1, menuItem2 });
+			menuItem1.Index = 0;
+			menuItem1.Text = "Copy selected items to clipboard";
+			menuItem1.Click += new EventHandler(menuItemSelected_Click);
+			menuItem2.Index = 1;
+			menuItem2.Text = "Copy all items to clipboard";
+			menuItem2.Click += new EventHandler(menuItemAll_Click);
+			
+
+			listBox.ContextMenu = contextMenu1;
+		}
+
+		ListBox ExtractControl(object sender)
+		{
+			MenuItem menuItem = sender as MenuItem;
+			if (menuItem != null)
+			{
+				// Retrieve the ContextMenu that contains this MenuItem
+				ContextMenu menu = menuItem.GetContextMenu();
+				if (menu != null)
+				{
+					Control sourceControl = menu.SourceControl;
+					if (sourceControl != null)
+					{
+						if (sourceControl.Name == "lbNotSelected")
+						{
+							return (ListBox) (Control) sourceControl;
+						}
+						if (sourceControl.Name == "lbSelected")
+						{
+							return (ListBox)(Control)sourceControl;
+						}
+					}
+				}
+
+				// Get the control that is displaying this context menu
+				
+			}
+			return null;
+		}
+
+		void copyItemsToClipboard(ListBox lbFrom, Boolean copyOnlySelectedItems)
+		{
+			if (lbFrom == null)
+				return;
+			string str = "";
+			List<String> list;
+			if (lbFrom.Items.Count < 1)
+				return;
+			if (copyOnlySelectedItems)
+			{
+				if (lbFrom.SelectedIndex == -1)
+					return; //nothing selected
+				list = lbFrom.SelectedItems.Cast<String>().ToList();
+			}
+			else {
+					list = lbFrom.Items.Cast<string>().ToList();
+			}
+
+			int count = list.Count;
+			for (int i = 0; i < count; i++)
+			{
+				if (i == 0)
+					str = list[i];
+				else
+					str += ";" + list[i];
+			}
+			Clipboard.SetText(str);
+		}
+
+		void menuItemSelected_Click(object sender, EventArgs e)
+		{
+			copyItemsToClipboard(ExtractControl(sender), true);
+		}
+		void menuItemAll_Click(object sender, EventArgs e)
+		{
+			copyItemsToClipboard(ExtractControl(sender), false);
+		}
+
 		private void InitTooltips()
 		{
 			toolTips = new ToolTip();
@@ -63,7 +153,8 @@ namespace GroupMove
 		private void FormSelectGroups_Load(object sender, EventArgs e)
 		{
 			InitTooltips();
-
+			CreateContextMenu(lbNotSelected);
+			CreateContextMenu(lbSelected);
 			string str;
 			for (int i = 1; i < _arrSkil.Length; i++)
 			{
