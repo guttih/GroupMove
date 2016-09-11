@@ -61,7 +61,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.5.1.3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5.1.4")]
         public string version {
             get {
                 return ((string)(this["version"]));
@@ -91,7 +91,7 @@ namespace GroupMove.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"You can now select specific assignments to extract. When reading a file, you see how many submissions and how many no sub missions there are.  Added select count and add all buttons to the specific solutions form.  Added a context menu to the listboxes which will allow the user to copy selected solutions to the clipboard.")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"You can now select specific assignments to extract. When reading a file, you see how many submissions and how many no sub missions there are.  Added select count and add all buttons to the specific solutions form.  Added a context menu to the listboxes which will allow the user to copy selected solutions to the clipboard.  On the form Select specific solutions duplicated numbers have been removed.")]
         public string versionDescription {
             get {
                 return ((string)(this["versionDescription"]));

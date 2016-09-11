@@ -28,6 +28,25 @@ namespace GroupMove
 			InitializeComponent();
 		}
 
+		private void FormSelectGroups_Load(object sender, EventArgs e)
+		{
+			InitTooltips();
+			CreateContextMenu(lbNotSelected);
+			CreateContextMenu(lbSelected);
+			string str;
+			for (int i = 1; i < _arrSkil.Length; i++)
+			{
+				str = _arrSkil[i][2];
+				if (str.Length > 0)
+					_notSelected.Add(str);
+			}
+			_notSelected = _notSelected.Distinct().ToList();
+			_notSelected.Sort();
+			lbNotSelected.DataSource = _notSelected;
+			lbSelected.DataSource = _selected;
+			UpdateView();
+		}
+
 		private List<String> GetSelected()
 		{
 			return _selected;
@@ -150,23 +169,7 @@ namespace GroupMove
 			toolTips.SetToolTip(this.btnOk, "Start moving assignments.");
 			toolTips.SetToolTip(this.btnCancel, "Cancel and close this dialog.");
 		}
-		private void FormSelectGroups_Load(object sender, EventArgs e)
-		{
-			InitTooltips();
-			CreateContextMenu(lbNotSelected);
-			CreateContextMenu(lbSelected);
-			string str;
-			for (int i = 1; i < _arrSkil.Length; i++)
-			{
-				str = _arrSkil[i][2];
-				if (str.Length > 0)
-					_notSelected.Add(str);
-			}
-			_notSelected.Sort();
-			lbNotSelected.DataSource = _notSelected;
-			lbSelected.DataSource = _selected;
-			UpdateView();
-		}
+
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
