@@ -47,9 +47,13 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.openDestinationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.selectSpecificSolutionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reloadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.makeUploadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.devideHandinsOntoGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.gradeAndCommentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.changeGradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changeCommentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.checkForUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +61,6 @@
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusBar1 = new System.Windows.Forms.StatusBar();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.selectSpecificSolutionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -223,6 +226,7 @@
 			this.comboHopar.Name = "comboHopar";
 			this.comboHopar.Size = new System.Drawing.Size(128, 28);
 			this.comboHopar.TabIndex = 12;
+			this.comboHopar.SelectedIndexChanged += new System.EventHandler(this.comboHopar_SelectedIndexChanged_1);
 			this.comboHopar.MouseEnter += new System.EventHandler(this.control_MouseEnter);
 			this.comboHopar.MouseLeave += new System.EventHandler(this.control_MouseLeave);
 			// 
@@ -255,6 +259,7 @@
             this.reloadFileToolStripMenuItem,
             this.makeUploadFileToolStripMenuItem,
             this.devideHandinsOntoGroupsToolStripMenuItem,
+            this.gradeAndCommentToolStripMenuItem1,
             this.exitToolStripMenuItem});
 			this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -272,6 +277,13 @@
 			this.openDestinationToolStripMenuItem.Click += new System.EventHandler(this.btnOpenDest_Click);
 			this.openDestinationToolStripMenuItem.MouseEnter += new System.EventHandler(this.openDestinationToolStripMenuItem_MouseEnter);
 			this.openDestinationToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			// 
+			// selectSpecificSolutionsToolStripMenuItem
+			// 
+			this.selectSpecificSolutionsToolStripMenuItem.Name = "selectSpecificSolutionsToolStripMenuItem";
+			this.selectSpecificSolutionsToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
+			this.selectSpecificSolutionsToolStripMenuItem.Text = "Select specific solutions";
+			this.selectSpecificSolutionsToolStripMenuItem.Click += new System.EventHandler(this.selectSpecificSolutionsToolStripMenuItem_Click);
 			// 
 			// reloadFileToolStripMenuItem
 			// 
@@ -299,6 +311,28 @@
 			this.devideHandinsOntoGroupsToolStripMenuItem.Click += new System.EventHandler(this.devideHandinsOntoGroupsToolStripMenuItem_Click);
 			this.devideHandinsOntoGroupsToolStripMenuItem.MouseEnter += new System.EventHandler(this.devideHandinsOntoGroupsToolStripMenuItem_MouseEnter);
 			this.devideHandinsOntoGroupsToolStripMenuItem.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+			// 
+			// gradeAndCommentToolStripMenuItem1
+			// 
+			this.gradeAndCommentToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeGradesToolStripMenuItem,
+            this.changeCommentsToolStripMenuItem});
+			this.gradeAndCommentToolStripMenuItem1.Name = "gradeAndCommentToolStripMenuItem1";
+			this.gradeAndCommentToolStripMenuItem1.Size = new System.Drawing.Size(324, 30);
+			this.gradeAndCommentToolStripMenuItem1.Text = "Grade and comment";
+			// 
+			// changeGradesToolStripMenuItem
+			// 
+			this.changeGradesToolStripMenuItem.Name = "changeGradesToolStripMenuItem";
+			this.changeGradesToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
+			this.changeGradesToolStripMenuItem.Text = "Change grades";
+			// 
+			// changeCommentsToolStripMenuItem
+			// 
+			this.changeCommentsToolStripMenuItem.Name = "changeCommentsToolStripMenuItem";
+			this.changeCommentsToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
+			this.changeCommentsToolStripMenuItem.Text = "Change comments";
+			this.changeCommentsToolStripMenuItem.Click += new System.EventHandler(this.changeCommentsToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem
 			// 
@@ -374,13 +408,6 @@
 			this.textBox1.Text = "Warning, when pressing Start you will be using the devided version of the assignm" +
     "ents.";
 			// 
-			// selectSpecificSolutionsToolStripMenuItem
-			// 
-			this.selectSpecificSolutionsToolStripMenuItem.Name = "selectSpecificSolutionsToolStripMenuItem";
-			this.selectSpecificSolutionsToolStripMenuItem.Size = new System.Drawing.Size(324, 30);
-			this.selectSpecificSolutionsToolStripMenuItem.Text = "Select specific solutions";
-			this.selectSpecificSolutionsToolStripMenuItem.Click += new System.EventHandler(this.selectSpecificSolutionsToolStripMenuItem_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -449,6 +476,9 @@
 		private System.Windows.Forms.ToolStripMenuItem reloadFileToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem checkForUpdateToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem selectSpecificSolutionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem gradeAndCommentToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem changeGradesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem changeCommentsToolStripMenuItem;
 	}
 }
 

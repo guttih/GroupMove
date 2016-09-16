@@ -1127,5 +1127,24 @@ namespace GroupMove
 			}
 
 		}
+
+		private void comboHopar_SelectedIndexChanged_1(object sender, EventArgs e)
+		{
+
+		}
+
+		private void changeCommentsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FormComments form = new FormComments(tbTo.Text.ToString());
+			DialogResult result = form.ShowDialog();
+			string str = "not ok";
+
+			if (result == DialogResult.OK)
+			{
+				str = "all is ok";
+			}
+			str = str + ".";
+		}
 	}
-}
+
+	}

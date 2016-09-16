@@ -119,11 +119,18 @@
     <Compile Include="Entity\HopurStats.cs" />
     <Compile Include="Entity\MySchoolAssignment.cs" />
     <Compile Include="Entity\ReadConfigFile.cs" />
+    <Compile Include="FileCollect.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComments.Designer.cs">
+      <DependentUpon>FormComments.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSelectGroups.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComments.resx">
+      <DependentUpon>FormComments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectGroups.resx">
       <DependentUpon>FormSelectGroups.cs</DependentUpon>
