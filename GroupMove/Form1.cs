@@ -1145,6 +1145,20 @@ namespace GroupMove
 			}
 			str = str + ".";
 		}
+
+		private void changeGradesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FormGrades form = new FormGrades(tbTo.Text.ToString());
+			DialogResult result = form.ShowDialog();
+			string str = "not ok";
+
+			if (result == DialogResult.OK)
+			{
+				str = "all is ok";
+			}
+			str = str + ".";
+
+		}
 	}
 
 	}

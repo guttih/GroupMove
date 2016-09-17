@@ -21,6 +21,21 @@ namespace GroupMove
 		_filesPaths = new List<string>();
 			PopulateFileNames();
 		}
+
+		public FileCollect(string rootDir)
+		{
+			_rootDir = rootDir;
+			_searchString = "*.*";
+			_filesPaths = new List<string>();
+		}
+		public void Add(string fullFileName)
+		{
+			_filesPaths.Add(fullFileName);
+		}
+		public void Remove(string fullFileName)
+		{
+			_filesPaths.Remove(fullFileName);
+		}
 		/// <summary>
 		/// Searches for filenames and if found adds a full filename, 
 		/// including the paht to the list

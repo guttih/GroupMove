@@ -319,13 +319,14 @@
             this.changeCommentsToolStripMenuItem});
 			this.gradeAndCommentToolStripMenuItem1.Name = "gradeAndCommentToolStripMenuItem1";
 			this.gradeAndCommentToolStripMenuItem1.Size = new System.Drawing.Size(324, 30);
-			this.gradeAndCommentToolStripMenuItem1.Text = "Grade and comment";
+			this.gradeAndCommentToolStripMenuItem1.Text = "Comment files";
 			// 
 			// changeGradesToolStripMenuItem
 			// 
 			this.changeGradesToolStripMenuItem.Name = "changeGradesToolStripMenuItem";
 			this.changeGradesToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
 			this.changeGradesToolStripMenuItem.Text = "Change grades";
+			this.changeGradesToolStripMenuItem.Click += new System.EventHandler(this.changeGradesToolStripMenuItem_Click);
 			// 
 			// changeCommentsToolStripMenuItem
 			// 

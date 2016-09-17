@@ -114,6 +114,7 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="AppFunctions.cs" />
+    <Compile Include="Entity\CommentFileInfo.cs" />
     <Compile Include="Entity\Group.cs" />
     <Compile Include="Entity\Groups.cs" />
     <Compile Include="Entity\HopurStats.cs" />
@@ -125,6 +126,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGrades.Designer.cs">
+      <DependentUpon>FormGrades.cs</DependentUpon>
     </Compile>
     <Compile Include="FormComments.cs">
       <SubType>Form</SubType>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGrades.resx">
+      <DependentUpon>FormGrades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormComments.resx">
       <DependentUpon>FormComments.cs</DependentUpon>
