@@ -324,15 +324,15 @@
 			// changeGradesToolStripMenuItem
 			// 
 			this.changeGradesToolStripMenuItem.Name = "changeGradesToolStripMenuItem";
-			this.changeGradesToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
+			this.changeGradesToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
 			this.changeGradesToolStripMenuItem.Text = "Change grades";
 			this.changeGradesToolStripMenuItem.Click += new System.EventHandler(this.changeGradesToolStripMenuItem_Click);
 			// 
 			// changeCommentsToolStripMenuItem
 			// 
 			this.changeCommentsToolStripMenuItem.Name = "changeCommentsToolStripMenuItem";
-			this.changeCommentsToolStripMenuItem.Size = new System.Drawing.Size(246, 30);
-			this.changeCommentsToolStripMenuItem.Text = "Change comments";
+			this.changeCommentsToolStripMenuItem.Size = new System.Drawing.Size(220, 30);
+			this.changeCommentsToolStripMenuItem.Text = "Add comments";
 			this.changeCommentsToolStripMenuItem.Click += new System.EventHandler(this.changeCommentsToolStripMenuItem_Click);
 			// 
 			// exitToolStripMenuItem

@@ -18,7 +18,7 @@ Copy the file
 	from
 		C:\Users\GuðjónHólm\Documents\Visual Studio 2015\Projects\GroupMove\Setup\Release\Setup.msi
 	to the new version folder on 
-		\\KEILIR7\htdocs\GroupMove\ver1_x_x_x
+		\\KEILIR7\htdocs\GroupMove\1_x_x_x
 Add the new information version information to the file 
 	\\KEILIR7\htdocs\GroupMove\index.html
 

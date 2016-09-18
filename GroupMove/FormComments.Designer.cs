@@ -237,7 +237,7 @@
 			this.Controls.Add(this.comboResult);
 			this.Controls.Add(this.comboDirs);
 			this.Name = "FormComments";
-			this.Text = "Change comments";
+			this.Text = "Add comments";
 			this.Load += new System.EventHandler(this.FormComments_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();

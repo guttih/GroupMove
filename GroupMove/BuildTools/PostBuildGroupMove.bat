@@ -6,6 +6,7 @@ set ConfigurationName=%2
 set ConfigPath=%SolDir%Setup
 
 
+
 if NOT %3x==x ( 
 	REM FOR TESTING OTHER PARAMETERS
 	echo param3: "%~3"
@@ -63,12 +64,25 @@ cd %ConfigPath%
 	echo %gVersionFolder% > version.txt
 	move %ConfigFileTo%  %gVersionFolder%
 	if exist %gVersionFolder%\download.config (
-	echo Success
-	goto endir
-)
+		echo Success
+		if %2 == Release ( goto deployToServer )
+		 goto endir
+	)
 	echo Error: ---- no configfile in version folder
 
 :::::::::::::::::::::::::::::::::::
+
+goto endir
+:deployToServer
+	set serverfolder="\\KEILIR7\htdocs\GroupMove"
+	echo Deploying version %gVersion% to folder %gVersionFolder% on the server.
+	@echo on
+	@echo -------------------------------------------------------
+	XCopy %gVersionFolder% %serverfolder%\1_5_1_6 /i /Y
+	XCopy %serverfolder%\1_5_1_6\download.config  %serverfolder%\download.config /Y
+	@echo off
+	echo -------------------------------------------------------
+	
 
 :endir
 set SolDir=
