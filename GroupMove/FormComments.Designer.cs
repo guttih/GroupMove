@@ -220,7 +220,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(837, 494);
+			this.ClientSize = new System.Drawing.Size(837, 539);
+			this.ControlBox = false;
 			this.Controls.Add(this.btnRefresh);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
@@ -236,7 +237,11 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.comboResult);
 			this.Controls.Add(this.comboDirs);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormComments";
+			this.ShowIcon = false;
 			this.Text = "Add comments";
 			this.Load += new System.EventHandler(this.FormComments_Load);
 			this.ResumeLayout(false);

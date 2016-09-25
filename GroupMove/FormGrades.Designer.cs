@@ -212,7 +212,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(462, 438);
+			this.ClientSize = new System.Drawing.Size(462, 467);
+			this.ControlBox = false;
 			this.Controls.Add(this.comboResult);
 			this.Controls.Add(this.tbTo);
 			this.Controls.Add(this.btnCancel);
@@ -221,7 +222,11 @@
 			this.Controls.Add(this.comboDirs);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.groupBox2);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "FormGrades";
+			this.ShowIcon = false;
 			this.Text = "Change grades";
 			this.Load += new System.EventHandler(this.FormComments_Load);
 			this.groupBox1.ResumeLayout(false);

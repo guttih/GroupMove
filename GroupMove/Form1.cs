@@ -1109,11 +1109,9 @@ namespace GroupMove
 		{
 			FormSelectGroups form = new FormSelectGroups(arrSkil);
 			DialogResult result = form.ShowDialog();
-			string str = "stuff";
 			
 			if (result == DialogResult.OK)
 			{
-				str = "all is ok";
 				var verkHoparID = form.Selected;
 				verkHoparID.Sort();
 				moveAssignments(verkHoparID);

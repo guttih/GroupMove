@@ -53,6 +53,7 @@
 			this.lbNotSelected.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
 			this.lbNotSelected.Size = new System.Drawing.Size(159, 344);
 			this.lbNotSelected.TabIndex = 0;
+			this.lbNotSelected.SelectedIndexChanged += new System.EventHandler(this.lbNotSelected_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -93,6 +94,7 @@
 			this.btnCancel.TabIndex = 5;
 			this.btnCancel.Text = "&Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// btnAdd
 			// 
@@ -180,7 +182,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(517, 603);
+			this.ClientSize = new System.Drawing.Size(509, 595);
 			this.ControlBox = false;
 			this.Controls.Add(this.lblSelectedCount);
 			this.Controls.Add(this.lblNotSelectedCount);

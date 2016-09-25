@@ -61,23 +61,22 @@ namespace GroupMove
 
 		private void CreateContextMenu(ListBox listBox)
 		{
-			ContextMenu contextMenu1;
-			contextMenu1 = new ContextMenu();
-			MenuItem menuItem1;
-			menuItem1 = new MenuItem();
-			MenuItem menuItem2;
-			menuItem2 = new MenuItem();
-			MenuItem menuItem3;
-			menuItem3 = new MenuItem();
+			var contextMenu1 = new ContextMenu();
+			var menuItem1 = new MenuItem();
+			var menuItem2 = new MenuItem();
+			var menuItem3 = new MenuItem();
 
-			contextMenu1.MenuItems.AddRange(new MenuItem[] { menuItem1, menuItem2 });
+			contextMenu1.MenuItems.AddRange(new[] { menuItem1, menuItem2, menuItem3 });
 			menuItem1.Index = 0;
 			menuItem1.Text = "Copy selected items to clipboard";
-			menuItem1.Click += new EventHandler(menuItemSelected_Click);
+			menuItem1.Click += menuItemSelected_Click;
 			menuItem2.Index = 1;
 			menuItem2.Text = "Copy all items to clipboard";
-			menuItem2.Click += new EventHandler(menuItemAll_Click);
-			
+			menuItem2.Click += menuItemAll_Click;
+			menuItem3.Index = 2;
+			menuItem3.Text = "Select a range from the list";
+			menuItem3.Click += menuItemSelectRange_Click;
+
 
 			listBox.ContextMenu = contextMenu1;
 		}
@@ -148,6 +147,39 @@ namespace GroupMove
 		{
 			copyItemsToClipboard(ExtractControl(sender), false);
 		}
+
+		void SelectRange(ListBox listbox)
+		{
+			if (listbox == null)
+				return;
+			string strFrom, strTo;
+			List<String> list;
+			if (listbox.Items.Count < 1)
+				return;
+			list = listbox.Items.Cast<string>().ToList();
+			strFrom = list[0];
+			strTo = list[list.Count - 1];
+			FormSelectRange form = new FormSelectRange(list.ToArray(), strFrom, strTo);
+			DialogResult result = form.ShowDialog();
+
+			if (result == DialogResult.OK)
+			{
+				var selected = form.GetSelected();
+				//todo select the range
+				var selectedItems = listbox.SelectedItems;
+				foreach (string item in selected)
+				{
+					selectedItems.Add(item);
+				}
+			}
+
+
+		}
+		void menuItemSelectRange_Click(object sender, EventArgs e)
+		{
+			SelectRange(ExtractControl(sender));
+		}
+		
 
 		private void InitTooltips()
 		{
@@ -244,6 +276,16 @@ namespace GroupMove
 				lbSelected.SetSelected(i, true);
 			}
 			moveItems(lbSelected, lbNotSelected);
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lbNotSelected_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

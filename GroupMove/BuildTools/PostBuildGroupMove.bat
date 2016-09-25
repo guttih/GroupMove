@@ -74,13 +74,22 @@ cd %ConfigPath%
 
 goto endir
 :deployToServer
-	set serverfolder="\\KEILIR7\htdocs\GroupMove"
+	set serverfolder=\\KEILIR7\htdocs\GroupMove
 	echo Deploying version %gVersion% to folder %gVersionFolder% on the server.
-	@echo on
-	@echo -------------------------------------------------------
-	XCopy %gVersionFolder% %serverfolder%\1_5_1_6 /i /Y
-	XCopy %serverfolder%\1_5_1_6\download.config  %serverfolder%\download.config /Y
-	@echo off
+	echo -------------------------------------------------------
+	if NOT exist "%serverfolder%\%gVersionFolder%\."         ( mkdir "%serverfolder%\%gVersionFolder%")
+	if exist %serverfolder%\%gVersionFolder%\Setup.msi       ( del %serverfolder%\%gVersionFolder%\Setup.msi )
+	if exist %serverfolder%\%gVersionFolder%\download.config ( del %serverfolder%\%gVersionFolder%\download.config )
+	if exist %serverfolder%\download.config                  ( del %serverfolder%\download.config )
+	
+	echo copy %gVersionFolder%\Setup.msi %serverfolder%\%gVersionFolder%\Setup.msi
+	     copy %gVersionFolder%\Setup.msi %serverfolder%\%gVersionFolder%\Setup.msi
+	echo copy %gVersionFolder%\download.config %serverfolder%\%gVersionFolder%\download.config
+	     copy %gVersionFolder%\download.config %serverfolder%\%gVersionFolder%\download.config
+	echo copy %gVersionFolder%\download.config  %serverfolder%\download.config
+	     copy %gVersionFolder%\download.config  %serverfolder%\download.config
+	
+	
 	echo -------------------------------------------------------
 	
 

@@ -127,6 +127,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectRange.Designer.cs">
+      <DependentUpon>FormSelectRange.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGrades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectRange.resx">
+      <DependentUpon>FormSelectRange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrades.resx">
       <DependentUpon>FormGrades.cs</DependentUpon>
