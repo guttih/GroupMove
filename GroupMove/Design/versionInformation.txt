@@ -33,3 +33,19 @@ todo: create a post build task
 Change the file \\KEILIR7\htdocs\GroupMove\download.config
         version            : 1.4.2.2
 		versionDescription : This version will be able to check if there is a new version of this application, download it and run the setup for the new version.  This version is created to test the former version, there is not funcionality added, just a new build
+
+new build process a small update (not checked):
+	-click the file AssemblyVersion  and change increment the last number in the 
+		-AssemblyVersion and
+		-AssemblyFileVersion 
+	- Double click on Settings.settings and set
+		- Version                to the same as AssemblyFileVersion
+		- versionDescription     New description of the version, or just append the new changes
+	-change current build to release
+	-rebuild the entire solution
+	-rebuild the entire solution (you need to do it twice)
+	-check in your code.
+	change the version info
+	\\KEILIR7\htdocs\GroupMove\index.html
+		-change the 3 version numbers
+		-copy the settints::settings::versionDescription and paste it to the index.html

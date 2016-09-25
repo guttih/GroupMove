@@ -245,7 +245,7 @@
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 0);
-			this.menuStrip1.Size = new System.Drawing.Size(724, 31);
+			this.menuStrip1.Size = new System.Drawing.Size(698, 31);
 			this.menuStrip1.Stretch = false;
 			this.menuStrip1.TabIndex = 14;
 			this.menuStrip1.Text = "menuStrip1";
@@ -387,7 +387,7 @@
 			this.statusBar1.Location = new System.Drawing.Point(0, 598);
 			this.statusBar1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
 			this.statusBar1.Name = "statusBar1";
-			this.statusBar1.Size = new System.Drawing.Size(724, 28);
+			this.statusBar1.Size = new System.Drawing.Size(698, 28);
 			this.statusBar1.TabIndex = 15;
 			this.statusBar1.Text = "statusBar1";
 			this.statusBar1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
@@ -413,7 +413,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(724, 626);
+			this.ClientSize = new System.Drawing.Size(698, 626);
 			this.Controls.Add(this.statusBar1);
 			this.Controls.Add(this.comboHopar);
 			this.Controls.Add(this.label4);

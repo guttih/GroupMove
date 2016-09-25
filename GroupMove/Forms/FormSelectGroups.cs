@@ -152,20 +152,17 @@ namespace GroupMove
 		{
 			if (listbox == null)
 				return;
-			string strFrom, strTo;
-			List<String> list;
 			if (listbox.Items.Count < 1)
 				return;
-			list = listbox.Items.Cast<string>().ToList();
-			strFrom = list[0];
-			strTo = list[list.Count - 1];
+			var list = listbox.Items.Cast<string>().ToList();
+			var strFrom = list[0];
+			var strTo = list[list.Count - 1];
 			FormSelectRange form = new FormSelectRange(list.ToArray(), strFrom, strTo);
 			DialogResult result = form.ShowDialog();
 
 			if (result == DialogResult.OK)
 			{
 				var selected = form.GetSelected();
-				//todo select the range
 				var selectedItems = listbox.SelectedItems;
 				foreach (string item in selected)
 				{

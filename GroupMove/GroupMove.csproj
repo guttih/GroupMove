@@ -107,10 +107,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="Forms\AboutBox1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
+    <Compile Include="Forms\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="AppFunctions.cs" />
@@ -121,55 +121,55 @@
     <Compile Include="Entity\MySchoolAssignment.cs" />
     <Compile Include="Entity\ReadConfigFile.cs" />
     <Compile Include="FileCollect.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSelectRange.cs">
+    <Compile Include="Forms\FormSelectRange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSelectRange.Designer.cs">
+    <Compile Include="Forms\FormSelectRange.Designer.cs">
       <DependentUpon>FormSelectRange.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGrades.cs">
+    <Compile Include="Forms\FormGrades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGrades.Designer.cs">
+    <Compile Include="Forms\FormGrades.Designer.cs">
       <DependentUpon>FormGrades.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormComments.cs">
+    <Compile Include="Forms\FormComments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormComments.Designer.cs">
+    <Compile Include="Forms\FormComments.Designer.cs">
       <DependentUpon>FormComments.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSelectGroups.cs">
+    <Compile Include="Forms\FormSelectGroups.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSelectGroups.Designer.cs">
+    <Compile Include="Forms\FormSelectGroups.Designer.cs">
       <DependentUpon>FormSelectGroups.cs</DependentUpon>
     </Compile>
     <Compile Include="GWeb.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
+    <EmbeddedResource Include="Forms\AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSelectRange.resx">
+    <EmbeddedResource Include="Forms\FormSelectRange.resx">
       <DependentUpon>FormSelectRange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGrades.resx">
+    <EmbeddedResource Include="Forms\FormGrades.resx">
       <DependentUpon>FormGrades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormComments.resx">
+    <EmbeddedResource Include="Forms\FormComments.resx">
       <DependentUpon>FormComments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSelectGroups.resx">
+    <EmbeddedResource Include="Forms\FormSelectGroups.resx">
       <DependentUpon>FormSelectGroups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
