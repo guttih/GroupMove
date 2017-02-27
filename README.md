@@ -1,2 +1,2 @@
 # GroupMove
-Webpage : [Click here](http://www.guttih.com/GroupMove "GroupMove Homepage")
+Webpage : [Click here](http://www.guttih.com/groupmove "GroupMove Homepage")
